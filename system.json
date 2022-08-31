@@ -1,0 +1,25 @@
+{
+    "name": "Shinobi-TTRPG-Foundry",
+    "title": "Shinobi TTRPG",
+    "description": "A system for roleplaying in the Naruto world",
+    "author": "md",
+    "version": "0.0.1",
+    "minimumCoreVersion": "9.280", 
+    "compatibleCoreVersion": "9.280",
+    "esmodules": [
+        "SRPG.js"
+    ],
+    "styles": [
+        "shinobiTTRPG.css"
+    ],
+    "packs": [
+
+    ],
+    "languages": [
+
+    ],
+    "gridDistance": 1,
+    "gridUnits": "yd",
+    "primaryTokenAttribute": "...",
+    "initiative": "..."
+}
