@@ -14,16 +14,16 @@
 		}
 	],
 	"esmodules": [
-		"srpg.mjs"
+		"./scripts/srpg.mjs"
 	],
 	"styles": [
-		"srpg.css"
+		"./styles/srpg.css"
 	],
 	"languages": [
 		{
 			"lang": "en",
 			"name": "English",
-			"path": "lang/en.json"
+			"path": "./lang/en.json"
 		}
 	],
 	"initiative": "1d10",
