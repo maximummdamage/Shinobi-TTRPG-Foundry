@@ -14,7 +14,7 @@
 		}
 	],
 	"esmodules": [
-		"./scripts/srpg.mjs"
+		"./module/srpg.mjs"
 	],
 	"styles": [
 		"./styles/srpg.css"

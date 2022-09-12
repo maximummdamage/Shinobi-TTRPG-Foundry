@@ -1,6 +1,6 @@
 {
 	"Actor": {
-		"types": ["Shinobi", "Mook"],
+		"types": ["shinobi", "mook"],
 		"templates": {
 			"base": {
 				"hit points": {
@@ -13,14 +13,14 @@
 				}
 			}
 		},
-		"Shinobi": {
+		"shinobi": {
 			"templates": ["base"],
 			"bio": {
 				"description": "",
 				"personality": ""
 			}
 		},
-		"Mook": {
+		"mook": {
 			"templates": ["base"]
 		}
 	},
