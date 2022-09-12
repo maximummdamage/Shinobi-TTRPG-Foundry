@@ -1,25 +1,37 @@
 {
-    "name": "Shinobi-TTRPG-Foundry",
-    "title": "Shinobi TTRPG",
-    "description": "A system for roleplaying in the Naruto world",
-    "author": "md",
-    "version": "0.0.1",
-    "minimumCoreVersion": "9.280", 
-    "compatibleCoreVersion": "9.280",
-    "esmodules": [
-        "SRPG.js"
-    ],
-    "styles": [
-        "shinobiTTRPG.css"
-    ],
-    "packs": [
-
-    ],
-    "languages": [
-
-    ],
-    "gridDistance": 1,
-    "gridUnits": "yd",
-    "primaryTokenAttribute": "...",
-    "initiative": "..."
+    "id": "srpg",
+	"title": "Shinobi",
+	"description": "A tabletop roleplaying game inspired by the Naruto universe",
+	"version": "0.0.1",
+	"compatibility": {
+		"minimum": "10",
+		"verified": "10.285"
+	},
+	"authors": [
+		{
+			"name": "Maxwell Dupree",
+			"email": "maxdupree17@gmail.com"
+		}
+	],
+	"esmodules": [
+		"srpg.mjs"
+	],
+	"styles": [
+		"srpg.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"initiative": "1d10",
+	"gridDistance": 1,
+	"gridUnits": "yd",
+	"primaryTokenAttribute": "resources.health",
+	"secondaryAttribute": "resources.chakra",
+	"url": "",
+	"manifest": "",
+	"download": ""
 }

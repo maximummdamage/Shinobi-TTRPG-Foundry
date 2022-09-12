@@ -1,80 +1,29 @@
 {
-    "Actor":{}, 
+	"Actor": {
+		"types": ["Shinobi", "Mook"],
+		"templates": {
+			"base": {
+				"hit points": {
+					"value": 0,
+					"max": 0
+				},
+				"chakra": {
+					"value": 0,
+					"max": 0
+				}
+			}
+		},
+		"Shinobi": {
+			"templates": ["base"],
+			"bio": {
+				"description": "",
+				"personality": ""
+			}
+		},
+		"Mook": {
+			"templates": ["base"]
+		}
+	},
 
-    "Item":{
-        "types": [
-            "weapon", "outfit", "tool", "misc", 
-            "taijutsuItem", "bukijutsuItem", "ninjutsuItem", "genjutsuItem"
-        ],
-
-        "templates": {
-            "physicalItem": {
-                "quantity": 1,
-                "price": 0,
-                "equipped": 0
-            },
-            "techniqueTemplate": {
-                "cost": 0,
-                "rank": 0,
-                "breakpoints": []
-            }, 
-            "itemDescription": {
-                "description": "",
-                "shortened": ""
-            },
-            "actionItem": {
-                "skill": null,
-                "bonus": 0,
-                "chatFlavor": "",
-                "duration": {
-                    "value": null,
-                    "units": ""
-                },
-                "target": {
-                    "value": null,
-                    "area": null,
-                    "units": ""
-                },
-                "range": {
-                    "value": null, 
-                    "units": ""
-                },
-                "damage": {
-                    "value": null,
-                    "type": ""
-                }
-            }
-        },
-
-        "weapon":{
-            "templates": ["physicalItem", "itemDescription", "actionItem"], 
-            "size": 0
-        },
-        "outfit":{
-            "templates": ["physicalItem", "itemDescription"],
-            "armor": 0
-        },
-        "tool":{
-            "templates": ["physicalItem", "itemDescription", "actionItem"]
-        },
-        "misc":{
-            "templates": ["physicalItem", "itemDescription"]
-        },
-        "techniqueItem": {
-            "templates": ["techniqueTemplate", "itemDescription", "actionItem"]
-        },
-
-        "taijutsuItem": {
-            "templates": ["techniqueTemplate", "itemDescription", "actionItem"]
-        },
-        "bukijutsuItem": {
-            "templates": ["techniqueTemplate", "itemDescription", "actionItem"]
-        },
-        "ninjutsuItem": {
-            "templates": ["techniqueTemplate", "itemDescription", "actionItem"]
-        },
-        "genjutsuItem": {
-            "templates": ["techniqueTemplate", "itemDescription", "actionItem"]
-        }
-    }
+	"Item": {}
 }
