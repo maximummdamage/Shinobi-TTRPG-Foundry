@@ -16,6 +16,22 @@ export class SRPGActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
+		console.log("I'm here!");
 		return `systems/srpg/templates/actor/actor-${this.actor.type}-sheet.hbs`;
+	}
+
+	/**
+	 * Called when opeining actor sheet
+	 *  @override */
+	getData() {
+		console.log("running getData()");
+
+		const context = super.getData();
+		const actorData = context.data;
+		console.log(actorData.system.hp.value);
+
+		console.log("done with getData()");
+
+		return context;
 	}
 }

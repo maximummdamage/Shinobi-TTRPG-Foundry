@@ -12,14 +12,13 @@
 				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SRPG.Name' }}"/>
 			</h1>
 
+			{{!-- character hp IN PROGRESS --}}
 			<h4 class="attribute-name box-title">{{ localize 'SRPG.hp' }}</h4>
-			<div class="attribute-value multiple">
-				<input name="system.resources.hp.value" type="number" step="any"
-				value="{{system.resources.hp.value}}" placeholder="10"
+			<div class="attribute-value">
+				<input name="actor.system.hp.value" type="number" step="any"
+				value="{{actor.system.hp.value}}" placeholder="10"
 				title="{{ localize 'SRPG.currentHitPoints' }}">
 			</div>
-			<h4 class="system.resources.hp.max" type="number" step="any" value="{{system.resources.hp.max}}" title="{{ localize 'SRPG.maxHitPoints' }}"
-
 
 		</section>
 	</header>
