@@ -6,5 +6,7 @@
 	"SRPG.chakra": "Chakra",
 	"SRPG.bio": "Bio",
 	"SRPG.desc": "Description",
-	"SRPG.personality": "Personality"
+	"SRPG.personality": "Personality",
+	"SRPG.Name": "Name",
+	"SRPG.currentHitPoints": "Current Hit Points"
 }

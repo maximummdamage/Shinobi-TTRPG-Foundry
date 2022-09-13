@@ -1,9 +1,27 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
 	{{!-- Sheet Header --}}
-	<header class="sheet-header">
+	<header class="sheet-header flexrow">
 		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
 		
+		<section class="header-details flexrow">
+			{{!-- maybe something here --}}
+
+			{{!-- character name --}}
+			<h1 class="charname">
+				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SRPG.Name' }}"/>
+			</h1>
+
+			<h4 class="attribute-name box-title">{{ localize 'SRPG.hp' }}</h4>
+			<div class="attribute-value multiple">
+				<input name="system.resources.hp.value" type="number" step="any"
+				value="{{system.resources.hp.value}}" placeholder="10"
+				title="{{ localize 'SRPG.currentHitPoints' }}">
+			</div>
+			<h4 class="system.resources.hp.max" type="number" step="any" value="{{system.resources.hp.max}}" title="{{ localize 'SRPG.maxHitPoints' }}"
+
+
+		</section>
 	</header>
 
 	{{!-- Sheet Tab Navigation --}}
