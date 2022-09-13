@@ -1,4 +1,4 @@
-// SPRG actor sheet class
+// SRPG Actor Sheet class extends Actor Sheet
 export class SRPGActorSheet extends ActorSheet {
 
 	/** @override */
