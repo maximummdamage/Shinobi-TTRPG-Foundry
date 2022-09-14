@@ -29,8 +29,8 @@
 	"initiative": "1d10",
 	"gridDistance": 1,
 	"gridUnits": "yd",
-	"primaryTokenAttribute": "actor.system.hp",
-	"secondaryAttribute": "system.chakra",
+	"primaryTokenAttribute": "hp",
+	"secondaryAttribute": "chakra",
 	"url": "",
 	"manifest": "",
 	"download": ""
