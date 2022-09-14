@@ -29,8 +29,8 @@
 	"initiative": "1d10",
 	"gridDistance": 1,
 	"gridUnits": "yd",
-	"primaryTokenAttribute": "resources.health",
-	"secondaryAttribute": "resources.chakra",
+	"primaryTokenAttribute": "actor.system.hp",
+	"secondaryAttribute": "system.chakra",
 	"url": "",
 	"manifest": "",
 	"download": ""

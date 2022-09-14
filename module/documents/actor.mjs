@@ -1,4 +1,7 @@
-// Extends base actor document
+/**
+ * Extends base Actor 
+ * @extends {Actor}
+ */
 export class SRPGActor extends Actor {
 
     /**
@@ -12,7 +15,7 @@ export class SRPGActor extends Actor {
 
     /** @override */
     prepareBaseData() {
-
+        // Data modifications before processing derived data
     }
 
     /**
@@ -22,18 +25,19 @@ export class SRPGActor extends Actor {
      * @override
      */
     prepareDerivedData() {
+        console.log("preparing derived data");
         if (this.type == "shinobi") {
-            this._prepareShinobiData(this.data);
+            this._prepareShinobiData();
         } else if (this.type == "mook") {
-            this._prepareNpcData(this.data);
+            this._prepareNpcData();
         }
     }
 
-    _prepareShinobiData(data) {
+    _prepareShinobiData() {
         console.log("SHINOBI");
     }
 
-    _prepareNpcData(data) {
+    _prepareNpcData() {
         console.log("MOOK");
     }
 }

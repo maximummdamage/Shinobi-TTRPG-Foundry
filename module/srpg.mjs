@@ -1,4 +1,4 @@
-// document imports
+// document import
 import { SRPGActor } from "./documents/actor.mjs";
 
 // sheet imports
@@ -18,15 +18,16 @@ Hooks.once("init", function() {
 	//here
 
 	// define custom document classes
-	//CONFIG.Actor.documentClass = SRPGActor;
+	CONFIG.Actor.documentClass = SRPGActor;
 
 	// register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("srpg", SRPGActorSheet, { makeDefault: true });
 
-	// preload handlebars template
-	return preloadHandlebarsTemplate;
-
+	// preload handlebars template if necessary
 })
 
 // ready hook
+Hooks.once("ready", async function() {
+	//Hooks.on("hotbarDrop", (bar, data, slot) => creatItemMacro(data, slot));
+})
