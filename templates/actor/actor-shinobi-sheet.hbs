@@ -13,12 +13,9 @@
 			</h1>
 
 			{{!-- character hp IN PROGRESS --}}
-			<h4 class="attribute-name box-title">{{ localize 'SRPG.hp' }}</h4>
-			<div class="attribute-value">
-				<input name="actor.system.hp.value" type="number" step="any"
-				value="{{actor.system.hp.value}}" placeholder="10"
-				title="{{ localize 'SRPG.currentHitPoints' }}">
-			</div>
+			<h4 class="charname">
+				<input name="actor.system.hp.value" type="number" value="{{actor.system.hp.value}}" placeholder="{{ localize 'SRPG.hitPoints' }}">
+			</h4>
 
 		</section>
 	</header>
