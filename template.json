@@ -1,33 +1,30 @@
 {
 	"Actor": {
-		"types": ["shinobi", "mook"],
-		"templates": {
-			"resources": {
-				"hp": {
-					"value": 36,
-					"max": 50
-				},
-				"chakra": {
-					"value": 27,
-					"max": 200
-				},
-				"ap": {
-					"value": 5,
-					"max": 5
-				}
-			}
-		},
-		"shinobi": {
-			"templates": ["resources"],
-			"bio": {
-				"description": "",
-				"personality": ""
-			}
-		},
-		"mook": {
-			"templates": ["resources"]
+		"types": ["character"],
+		"character": {
+			"biography": "",
+			"health": {
+				"value": 10,
+				"min": 0,
+				"max": 10
+			},
+			"power": {
+				"value": 5,
+				"min": 0,
+				"max": 5
+			},
+			"attributes": {},
+			"groups": {}
 		}
 	},
-
-	"Item": {}
+	"Item": {
+		"types": ["item"],
+		"item": {
+			"description": "",
+			"quantity": 1,
+			"weight": 0,
+			"attributes": {},
+			"groups": {}
+		}
+	}
 }

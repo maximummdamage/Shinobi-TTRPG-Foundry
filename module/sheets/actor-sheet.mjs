@@ -1,101 +1,121 @@
+import { EntitySheetHelper } from "../helper.js";
+import {ATTRIBUTE_TYPES} from "../constants.js";
+
 /**
- * Extends basic actor sheet
+ * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
 export class SRPGActorSheet extends ActorSheet {
 
-	/** @override */
-	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
-			// CSS classes
-			classes: ["srpg", "sheet", "actor"],
-			template: "systems/srpg/templates/actor/actor-shinobi-sheet.hbs",
-			// Default window dimensions
-			width: 600,
-			height: 600,
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills" }]
-		});
-	}
+  /** @inheritdoc */
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      classes: ["srpg", "sheet", "actor"],
+      template: "systems/srpg/templates/actor/actor-sheet.hbs",
+      width: 600,
+      height: 600,
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      scrollY: [".biography", ".items", ".attributes"],
+      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+    });
+  }
 
-	/** @override */
-	get template() {
-		return `systems/srpg/templates/actor/actor-${this.actor.type}-sheet.hbs`;
-	}
+  /* -------------------------------------------- */
 
-	/**
-	 * Called when opeining actor sheet
-	 *  @override */
-	getData() {
-		console.log("running getData()");
+  /** @inheritdoc */
+  async getData(options) {
+    const context = await super.getData(options);
+    EntitySheetHelper.getAttributeData(context.data);
+    context.shorthand = !!game.settings.get("srpg", "macroShorthand");
+    context.systemData = context.data.system;
+    context.dtypes = ATTRIBUTE_TYPES;
+    context.biographyHTML = await TextEditor.enrichHTML(context.systemData.biography, {
+      secrets: this.document.isOwner,
+      async: true
+    });
+    return context;
+  }
 
-		// get actor data
-		const context = super.getData();
-		const actorData = context.data;
-		context.flags = actorData.flags;
-		console.log(actorData.system);
+  /* -------------------------------------------- */
 
-		// prepare shinobi data and items
-		if (actorData.type == 'shinobi') {
-			this._prepareCharacterData(context);
-		}
+  /** @inheritdoc */
+  activateListeners(html) {
+    super.activateListeners(html);
 
-		// prepare mook data and items
+    // Everything below here is only needed if the sheet is editable
+    if ( !this.isEditable ) return;
 
-		// add roll data
+    // Attribute Management
+    html.find(".attributes").on("click", ".attribute-control", EntitySheetHelper.onClickAttributeControl.bind(this));
+    html.find(".groups").on("click", ".group-control", EntitySheetHelper.onClickAttributeGroupControl.bind(this));
+    html.find(".attributes").on("click", "a.attribute-roll", EntitySheetHelper.onAttributeRoll.bind(this));
 
-		// prepare active effects?
+    // Item Controls
+    html.find(".item-control").click(this._onItemControl.bind(this));
+    html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
-		console.log("done with getData()");
+    // Add draggable for Macro creation
+    html.find(".attributes a.attribute-roll").each((i, a) => {
+      a.setAttribute("draggable", true);
+      a.addEventListener("dragstart", ev => {
+        let dragData = ev.currentTarget.dataset;
+        ev.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+      }, false);
+    });
+  }
 
-		return context;
-	}
+  /* -------------------------------------------- */
 
-	/**
-	 * Prepare shinobi info for sheet
-	 * @param {Object} actorData the actor to prepare
-	 * @return {undefined}
-	 */
-	_prepareCharacterData(context) {
-		console.log("preparing shinobi data");
-	}
+  /**
+   * Handle click events for Item control buttons within the Actor Sheet
+   * @param event
+   * @private
+   */
+  _onItemControl(event) {
+    event.preventDefault();
 
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
+    // Obtain event data
+    const button = event.currentTarget;
+    const li = button.closest(".item");
+    const item = this.actor.items.get(li?.dataset.itemId);
 
-		html.find('.item-edit').click(ev => {
-			const li = $(ev.currentTarget).parents(".item");
-			const item = this.actor.items.get(li.data("itemId"));
-			item.sheet.render(true);
-		});
+    // Handle different actions
+    switch ( button.dataset.action ) {
+      case "create":
+        const cls = getDocumentClass("Item");
+        return cls.create({name: game.i18n.localize("SRPG.ItemNew"), type: "item"}, {parent: this.actor});
+      case "edit":
+        return item.sheet.render(true);
+      case "delete":
+        return item.delete();
+    }
+  }
 
-		// ---------------------------------------------------------
-		// everything below here is only needed if sheet is editable
-		if (!this.isEditable) return;
+  /* -------------------------------------------- */
 
-		// Active Effect management
-		html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
+  /**
+   * Listen for roll buttons on items.
+   * @param {MouseEvent} event    The originating left click event
+   */
+  _onItemRoll(event) {
+    let button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+    let r = new Roll(button.data('roll'), this.actor.getRollData());
+    return r.toMessage({
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
+    });
+  }
 
-		// Rollable abilities.
-		//html.find('.rollable').click(this._onRoll.bind(this));
-	}
+  /* -------------------------------------------- */
 
-	/**
-	 * TODO: generalize this from just hp to all values
-	 * updates values of info upon submitting data
-	 * should move to helper function so that it works for items as well.
-	 *  @inheritdoc */
-	_getSubmitData(updateData) {
-		let formData = super._getSubmitData(updateData);
-		console.log(formData);
-		console.log(this.actor.system.hp.value);
-		const formAttrs = foundry.utils.expandObject(formData);
-		console.log(formAttrs);
-		//let hpval = temp["actor.system.hp.value"];
-		this.actor.system.hp.value = formAttrs.actor.system.hp.value;
-		//formData = EntitySheetHelper.updateAttributes(formData, this.object);
-		//formData = EntitySheetHelper.updateGroups(formData, this.object);
-		return formData;
-	}
-	
+  /** @inheritdoc */
+  _getSubmitData(updateData) {
+    let formData = super._getSubmitData(updateData);
+    formData = EntitySheetHelper.updateAttributes(formData, this.object);
+    formData = EntitySheetHelper.updateGroups(formData, this.object);
+    return formData;
+  }
 }
