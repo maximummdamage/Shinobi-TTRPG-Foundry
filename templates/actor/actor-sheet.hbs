@@ -1,12 +1,39 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
+    <header class="sheet-header flexrow">
+		{{!-- character info pane --}}
+		<div class="charinfo">
+			<table>
+				<tr>
+					<td class="charinfolabel">{{localize "SRPG.name"}}</td>
+					<td>
+						<input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+					</td>
+				</tr>
+				<tr>
+					<td class="charinfolabel">{{localize "SRPG.age"}}</td>
+					<td>
+						<input name="system.age" type="number" value="{{systemData.age}}" placeholder="age" />
+					</td>
+				</tr>
+				<tr>
+					<td class="charinfolabel">{{localize "SRPG.gender"}}</td>
+					<td>
+						<input name="system.gender" type="text" value="{{systemData.gender}}" placehoder="gender" />
+					</td>
+				</tr>
+				<tr>
+					<td class="charinfolabel">{{localize "SRPG.birthright"}}</td>
+					<td>
+						<input name="system.birthright" type="text" value="{{systemData.birthright}}" placeholder="birthright" />
+					</td>
+				</tr>
+			</table>
+		</div>
+
         <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
         <div class="header-fields">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{data.name}}" placeholder="Name" />
-            </h1>
             <div class="resource">
                 <input type="number" name="system.health.value" value="{{systemData.health.value}}"/>
                 <span> / </span>
