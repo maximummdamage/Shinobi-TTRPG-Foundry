@@ -13,6 +13,32 @@
 				"min": 0,
 				"max": 5
 			},
+			"statistics": {
+				"str": {
+					"value": 0,
+					"min": 0
+				},
+				"dex": {
+					"value": 0,
+					"min": 0
+				},
+				"con": {
+					"value": 0,
+					"min": 0
+				},
+				"spd": {
+					"value": 0,
+					"min": 0
+				},
+				"int": {
+					"value": 0,
+					"min": 0
+				},
+				"cha": {
+					"value": 0,
+					"min": 0
+				}
+			},
 			"age": 0,
 			"gender": "",
 			"villiage": "",

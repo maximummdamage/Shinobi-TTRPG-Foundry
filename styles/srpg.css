@@ -1,0 +1,50 @@
+/* CSS styles for Shinobi */
+
+/* header general */
+.sheet-header {
+    margin: 0px;
+}
+
+/* character info pane */
+.char-info {
+    height: auto;
+    max-width: auto;
+    padding: 0px;
+    margin: 0px;
+}
+
+.char-info td{
+    padding: 0px;
+    text-align: left;
+    border-style: none; 
+    text-transform: capitalize;
+}
+
+.char-info input{
+    border-style: none;
+    border-bottom-style: solid;
+    border-radius: 0px;
+}
+
+/* character stat pane */
+.stat-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-columns: 200px 200px;
+}
+
+.stat-grid .stat {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.stat-grid .stat input {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+}
+
+/* sheet tabs */
+.sheet-tabs {
+    max-height: 40;
+}

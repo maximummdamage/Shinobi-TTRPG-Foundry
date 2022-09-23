@@ -1,12 +1,17 @@
 {
 	"SRPG.title": "Shinobi",
-	"SRPG.stats": "Statistics",
-	"SRPG.skills": "Skills",
-	"SRPG.hp": "Hit Points",
-	"SRPG.chakra": "Chakra",
-	"SRPG.bio": "Bio",
-	"SRPG.desc": "Description",
-	"SRPG.personality": "Personality",
-	"SRPG.Name": "Name",
-	"SRPG.currentHitPoints": "Current Hit Points"
+
+	"SRPG.name": "name",
+	"SRPG.age": "age",
+	"SRPG.gender": "gender",
+	"SRPG.birthright": "birthright",
+	"SRPG.village": "village",
+
+	"SRPG.str": "str",
+	"SRPG.dex": "dex",
+	"SRPG.con": "con",
+	"SRPG.spd": "spd",
+	"SRPG.int": "int",
+	"SRPG.cha": "cha",
+	"SRPG.mov": "mov"
 }

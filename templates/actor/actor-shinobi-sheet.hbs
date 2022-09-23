@@ -1,25 +1,75 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
 
 	{{!-- Sheet Header --}}
-	<header class="sheet-header flexrow">
-		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+	<header class="sheet-header">
 		
-		<section class="header-details flexrow">
-			{{!-- maybe something here --}}
+		{{!-- character info pane --}}
+		<div class="char-info">
+			<table>
+				<tr>
+					<td class="info-label">{{localize "SRPG.name"}}</td>
+					<td>
+						<input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+					</td>
+				</tr>
+				<tr>
+					<td class="info-label">{{localize "SRPG.age"}}</td>
+					<td>
+						<input name="system.age" type="number" value="{{systemData.age}}" placeholder="age" />
+					</td>
+				</tr>
+				<tr>
+					<td class="info-label">{{localize "SRPG.gender"}}</td>
+					<td>
+						<input name="system.gender" type="text" value="{{systemData.gender}}" placehoder="gender" />
+					</td>
+				</tr>
+				<tr>
+					<td class="info-label">{{localize "SRPG.birthright"}}</td>
+					<td>
+						<input name="system.birthright" type="text" value="{{systemData.birthright}}" placeholder="birthright" />
+					</td>
+				</tr>
+                <tr>
+                    <td class="info-label">{{localize "SRPG.village"}}</td>
+                    <td>
+                        <input name="system.village" type="text" value="{{systemData.village}}" placeholder="village" />
+                    </td>
+                </tr>
+			</table>
+		</div>
 
-			{{!-- character name --}}
-			<h1 class="charname">
-				<input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SRPG.Name' }}"/>
-			</h1>
+		{{!-- character stat block --}}
+		<div class="stat-grid">
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.str"}}</h3>
+				<input name="system.statistics.str.value" type="number" value="{{systemData.statistics.str.value}}" placeholder="str" />
+			</div>
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.dex"}}</h3>
+				<input name="system.statistics.dex.value" type="number" value="{{systemData.statistics.dex.value}}" placeholder="dex" />
+			</div>
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.con"}}</h3>
+				<input name="system.statistics.con.value" type="number" value="{{systemData.statistics.con.value}}" placeholder="con" />
+			</div>
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.spd"}}</h3>
+				<input name="system.statistics.spd.value" type="number" value="{{systemData.statistics.spd.value}}" placeholder="spd" />
+			</div>
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.int"}}</h3>
+				<input name="system.statistics.int.value" type="number" value="{{systemData.statistics.int.value}}" placeholder="int" />
+			</div>
+			<div class="stat">
+				<p class="statname">{{localize "SRPG.cha"}}</h3>
+				<input name="system.statistics.cha.value" type="number" value="{{systemData.statistics.cha.value}}" placeholder="cha" />
+			</div>
+		</div>
 
-			{{!-- character hp IN PROGRESS --}}
-			{{log actor}}
-			<h4 class="resource">
-				<input name="system.hp.value" type="number" value="{{system.hp.value}}" placeholder="{{ localize 'SRPG.hp' }}"/>
-				<h4 class="resource">{{system.hp.value}}</h4>
-			</h4>
+		{{!-- character picture --}}
+		<img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="150" width="150" />
 
-		</section>
 	</header>
 
 	{{!-- Sheet Tab Navigation --}}

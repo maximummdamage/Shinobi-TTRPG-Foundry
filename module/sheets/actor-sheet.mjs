@@ -22,6 +22,13 @@ export class SRPGActorSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
+  /** @override */
+  get template() {
+    return `systems/srpg/templates/actor/actor-${this.actor.type}-sheet.hbs`
+  }
+
+  /* -------------------------------------------- */
+
   /** @inheritdoc */
   async getData(options) {
     const context = await super.getData(options);

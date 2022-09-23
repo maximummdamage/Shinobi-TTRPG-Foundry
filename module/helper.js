@@ -525,7 +525,8 @@ export class EntitySheetHelper {
     const templates = collection.filter(a => a.getFlag("srpg", "isTemplate"));
     const defaultType = this.metadata.types[0];
     const types = {
-      [defaultType]: game.i18n.localize("SRPG.NoTemplate")
+      [defaultType]: game.i18n.localize("SRPG.shinobi"),
+      arbitrary: game.i18n.localize("SRPG.mook")
     }
     for ( let a of templates ) {
       types[a.id] = a.name;
