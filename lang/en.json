@@ -15,5 +15,10 @@
 	"SRPG.spd": "spd",
 	"SRPG.int": "int",
 	"SRPG.cha": "cha",
-	"SRPG.mov": "mov"
+	"SRPG.mov": "mov",
+
+	"SRPG.hp": "hp",
+	"SRPG.chk": "chk",
+	"SRPG.ap": "ap",
+	"SRPG.max": "max"
 }

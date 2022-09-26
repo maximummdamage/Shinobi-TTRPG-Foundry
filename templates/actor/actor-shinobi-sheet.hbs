@@ -75,7 +75,56 @@
 
 			{{!-- character resources --}}
 			<div class="char-resources header-grid-item">
-				character resources go here
+
+				{{!-- hp chk ap --}}
+				<div class="resource-grid-item minigrid">
+					<div class="minigrid-item resource-label resource-actual hp">{{localize "SRPG.hp"}}</div>
+					<div class="minigrid-item resource-value resource-actual">
+						<input name="system.hp.value" type="number" value="{{systemData.hp.value}}" placeholder="hp" />
+					</div>
+					<div class="minigrid-item resource-label resource-max hp">{{localize "SRPG.max"}}</div>
+					<div class="minigrid-item resource-value resource-max">
+						<input name="system.hp.max" type="number" value="{{systemData.hp.max}}" placeholder="hp max" />
+					</div>
+					{{!--
+					<div class="resource-value">
+						<p class="resource-label">{{localize "SRPG.hp"}}</p>
+						<input name="system.hp.value" type="number" value="{{systemData.hp.value}}" placeholder="hp" />
+					</div>
+					<div class="resource-max">
+						<p class="resource-label-max">{{localize "SRPG.max"}}</p>
+						<input name="system.hp.max" type="number" value="{{systemData.hp.max}}" placeholder="hp max" />
+					</div>
+					--}}
+				</div>
+				<div class="resource-grid-item minigrid">
+					<div class="minigrid-item resource-label resource-actual chk">{{localize "SRPG.chk"}}</div>
+					<div class="minigrid-item resource-value resource-actual">
+						<input name="system.chakra.value" type="number" value="{{systemData.chakra.value}}" placeholder="chk" />
+					</div>
+					<div class="minigrid-item resource-label resource-max chk">{{localize "SRPG.max"}}</div>
+					<div class="minigrid-item resource-value resource-max">
+						<input name="system.chakra.max" type="number" value="{{systemData.chakra.max}}" placeholder="chk max" />
+					</div>
+				</div>
+				<div class="resource-grid-item ap minigrid">
+					<div class="minigrid-item resource-label resource-actual ap">{{localize "SRPG.ap"}}</div>
+					<div class="minigrid-item resource-value resource-actual">
+						<input name="system.ap.value" type="number" value="{{systemData.ap.value}}" placeholder="ap" />
+					</div>
+					<div class="minigrid-item resource-label resource-max ap">{{localize "SRPG.max"}}</div>
+					<div class="minigrid-item resource-value resource-max">
+						<input name="system.ap.max" type="number" value="{{systemData.ap.max}}" placeholder="ap max" />
+					</div>
+				</div>
+
+				{{!-- toggles and other --}}
+				<div class="resource-grid-item toggles">
+					toggles here
+				</div>
+				<div class="resource-grid-item other">
+					other here
+				</div>
 			</div>
 		</div>
 

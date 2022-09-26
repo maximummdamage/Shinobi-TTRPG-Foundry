@@ -69,6 +69,63 @@ header .sheet-header {
     border-radius: 0px
 }
 
+/* Character Resources pane */
+.header-grid .char-resources {
+	grid-column: 1 / span 3;
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+}
+
+.resource-grid-item {
+	border-style: none;
+	margin: 0px;
+	text-align: center;
+}
+
+.char-resources .minigrid {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.char-resources .minigrid .resource-label {
+	border-style: none;
+	text-transform: uppercase;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.char-resources .minigrid .resource-value {
+	padding: 0px;
+	border-style: none;
+}
+
+.char-resources .minigrid .resource-value input{
+	border-style: none;
+	margin: 0px;
+}
+
+.char-resources .minigrid .resource-actual{
+	font-size: 24px;
+}
+
+.char-resources .minigrid .resource-max {
+	font-size: 14px;
+}
+
+.resource-grid-item .hp {
+	background-color: indianred;
+}
+
+.resource-grid-item .chk {
+	background-color: lightblue;
+}
+
+.resource-grid-item .ap {
+	background-color: lightgreen;
+}
+
 /* character picture */
 .profile-image {
     padding: 15px;
