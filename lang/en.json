@@ -6,6 +6,8 @@
 	"SRPG.gender": "gender",
 	"SRPG.birthright": "birthright",
 	"SRPG.village": "village",
+	"SRPG.affiliation": "affiliation",
+	"SRPG.rank": "rank",
 
 	"SRPG.str": "str",
 	"SRPG.dex": "dex",

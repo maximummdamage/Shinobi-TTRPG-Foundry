@@ -40,8 +40,8 @@
 				}
 			},
 			"age": 0,
-			"gender": "",
-			"villiage": "",
+			"rank": "",
+			"affiliation": "",
 			"birthright": "",
 			"attributes": {},
 			"groups": {}
