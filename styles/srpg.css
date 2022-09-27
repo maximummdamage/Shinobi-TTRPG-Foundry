@@ -134,6 +134,24 @@ header .sheet-header {
     width: 100;
 }
 
+/* resource toggles */
+.header-grid-item .toggles {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.header-grid-item .toggles .toggle-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: capitalize;
+}
+
+.header-grid-item .toggles input {
+	height: 14px;
+	width: 14px;
+}
+
 /* sheet tabs */
 .sheet-tabs {
     max-height: 40;

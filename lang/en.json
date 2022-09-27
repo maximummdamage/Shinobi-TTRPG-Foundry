@@ -20,5 +20,8 @@
 	"SRPG.hp": "hp",
 	"SRPG.chk": "chk",
 	"SRPG.ap": "ap",
-	"SRPG.max": "max"
+	"SRPG.max": "max",
+	"SRPG.mw": "major wound",
+	"SRPG.unconcious": "unconcious",
+	"SRPG.ce": "chakra exhaustion"
 }

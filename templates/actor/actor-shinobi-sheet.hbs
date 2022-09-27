@@ -110,7 +110,12 @@
 
 				{{!-- toggles and other --}}
 				<div class="resource-grid-item toggles">
-					toggles here
+					<div class="toggle-label hp">{{localize "SRPG.mw"}}</div>
+					<input name="system.mw" type="checkbox" {{checked systemData.mw}} />
+					<div class="toggle-label hp">{{localize "SRPG.unconcious"}}</div>
+					<input name="system.unconcious" type="checkbox" {{checked systemData.unconcious}} />
+					<div class="toggle-label chk">{{localize "SRPG.ce"}}</div>
+					<input name="system.ce" type="checkbox" {{checked systemData.ce}} />
 				</div>
 				<div class="resource-grid-item other">
 					other here
