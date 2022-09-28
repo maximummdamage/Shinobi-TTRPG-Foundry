@@ -23,5 +23,13 @@
 	"SRPG.max": "max",
 	"SRPG.mw": "major wound",
 	"SRPG.unconcious": "unconcious",
-	"SRPG.ce": "chakra exhaustion"
+	"SRPG.ce": "chakra exhaustion",
+	"SRPG.skilllevel": "skill level",
+	"SRPG.available-levels": "Available SL",
+	"SRPG.something": "something",
+
+	"SRPG.skills": "skills",
+	"SRPG.inventory": "inventory",
+	"SRPG.techniques": "techniques",
+	"SRPG.bio": "bio"
 }

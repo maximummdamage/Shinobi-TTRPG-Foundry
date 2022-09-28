@@ -47,11 +47,27 @@
 					"min": 0
 				}
 			},
-			"skill-level": 0,
+			"skilllevel": 0,
 			"age": 0,
 			"rank": "",
 			"affiliation": "",
 			"birthright": "",
+
+			"skills": {
+				"dodge": {
+					"ranks": 0,
+					"stat": "dex"
+				},
+				"initiative": {
+					"ranks": 0,
+					"stat": "dex"
+				},
+				"medic": {
+					"ranks": 0,
+					"stat": "int"
+				}
+			},
+
 			"attributes": {},
 			"groups": {}
 		},

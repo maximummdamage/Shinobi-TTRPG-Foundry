@@ -29,6 +29,9 @@ export class SRPGActorSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
+  // derived data that isn't used anywhere but on the character sheet
+  // dont calculate data her that is useful for rolls
+
   /** @inheritdoc */
   async getData(options) {
     const context = await super.getData(options);
@@ -40,8 +43,25 @@ export class SRPGActorSheet extends ActorSheet {
       secrets: this.document.isOwner,
       async: true
     });
+
+	// call helper functions to prepare data
+	context.systemData = this._availableLevels(context.systemData);
+
     return context;
   }
+
+  // helpers for getData() here
+
+  _availableLevels(systemData) {
+	// calculate total levels in skills
+	var totalSkills = 20;
+
+	
+	// set availableLevels
+	systemData.availableLevels = systemData.skilllevel - totalSkills;
+	return systemData;
+  }
+
 
   /* -------------------------------------------- */
 

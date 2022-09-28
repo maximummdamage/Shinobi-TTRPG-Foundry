@@ -91,6 +91,7 @@ header .sheet-header {
 	border-style: none;
 	text-transform: uppercase;
 	margin: 0px;
+	max-width: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -98,6 +99,7 @@ header .sheet-header {
 
 .char-resources .minigrid .resource-value {
 	padding: 0px;
+	max-width: 60px;
 	border-style: none;
 }
 
@@ -112,6 +114,10 @@ header .sheet-header {
 
 .char-resources .minigrid .resource-max {
 	font-size: 14px;
+}
+
+.char-resources .minigrid .chk {
+	max-width: 44px;
 }
 
 .resource-grid-item .hp {
@@ -145,11 +151,38 @@ header .sheet-header {
 	justify-content: center;
 	align-items: center;
 	text-transform: capitalize;
+	max-height: 20px
 }
 
 .header-grid-item .toggles input {
 	height: 14px;
 	width: 14px;
+}
+
+.header-grid-item .other {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+.header-grid-item .other .other-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: capitalize;
+	max-height: 20px;
+}
+
+.header-grid-item .other .other-data {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height: 20px;
+	max-width: 40px;
+}
+
+.header-grid-item .other .other-data input{
+	max-height: 20px;
+	border-style: none;
 }
 
 /* sheet tabs */

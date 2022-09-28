@@ -118,7 +118,14 @@
 					<input name="system.ce" type="checkbox" {{checked systemData.ce}} />
 				</div>
 				<div class="resource-grid-item other">
-					other here
+					<div class="other-label">{{localize "SRPG.skilllevel"}}</div>
+					<div class="other-data">
+						<input name="system.skilllevel" type="number" value="{{systemData.skilllevel}}" />
+					</div>
+					<div class="other-label">{{localize "SRPG.available-levels"}}</div>
+					<div class="other-data" name="available-levels">{{systemData.availableLevels}}</div>
+					<div class="other-label">{{localize "SRPG.something"}}</div>
+					<div class="other-data" name="something" text="sampletext"></div>
 				</div>
 			</div>
 		</div>
