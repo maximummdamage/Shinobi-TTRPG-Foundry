@@ -56,16 +56,19 @@
 			"skills": {
 				"dodge": {
 					"value": 0,
+					"base": 0,
 					"stat": "dex",
 					"label": "SRPG.dodge"
 				},
 				"initiative": {
 					"value": 0,
+					"base": 0,
 					"stat": "dex",
 					"label": "SRPG.initiative"
 				},
 				"medic": {
 					"value": 0,
+					"base": 0,
 					"stat": "int",
 					"label": "SRPG.medic"
 				}

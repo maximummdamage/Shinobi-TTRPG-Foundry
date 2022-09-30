@@ -12,6 +12,23 @@ export class SRPGActor extends Actor {
     this.system.groups = this.system.groups || {};
     this.system.attributes = this.system.attributes || {};
     EntitySheetHelper.clampResourceValues(this.system.attributes);
+
+	// my helpers
+	this.system = this._prepareSkillBase(this.system);
+  }
+
+  // custom helpers for prepareDerivedData here
+
+  /**
+   * adds statvalues to skills
+   */
+   _prepareSkillBase(system) {
+	for (let skill in system.skills) {
+		let stat = system.skills[skill].stat;
+		system.skills[skill].base = system.skills[skill].value + system.statistics[stat].value;
+		console.log(system.skills[skill].base);
+	}
+	return system;
   }
 
   /* -------------------------------------------- */

@@ -193,3 +193,10 @@ header .sheet-header {
 .sheet-body .skills {
 	column-count: 3;
 }
+
+
+
+/* chat message formatting (rolls mostly) */
+.skillroll {
+	text-transform: capitalize;
+}

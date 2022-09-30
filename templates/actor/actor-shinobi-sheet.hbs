@@ -143,8 +143,13 @@
 
 		<div class="tab skills" data-group="primary" data-tab="skills">
 			{{#each systemData.skills as |skill id|}}
-			{{log skill.label}}
-				<div class="skill">{{localize skill.label}}</div>
+				<div class="skill">
+					<div class="label rollable" data-roll="d10+@systemData.statistics.{{skill.stat}}.value" data-label="{{localize skill.label}}">
+						{{localize skill.label}}
+					</div>
+					<input class="ranks" name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
+					<div class="base">{{skill.base}}</div>
+				</div>
 			{{/each}}
 		</div>
 

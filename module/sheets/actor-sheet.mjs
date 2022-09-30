@@ -52,6 +52,9 @@ export class SRPGActorSheet extends ActorSheet {
 
   // helpers for getData() here
 
+  /**
+   * calculates total levels in skills, then subtracts that from skill level to show total skill levels available
+   */
   _availableLevels(systemData) {
 	// calculate total levels in skills
 	var totalSkills = 20;
@@ -148,4 +151,20 @@ export class SRPGActorSheet extends ActorSheet {
     formData = EntitySheetHelper.updateGroups(formData, this.object);
     return formData;
   }
+
+	/* ---------------------------------------------- */
+	/**
+	 * @param {MouseEvent} event 
+	 */
+	_onSkillRoll(event) {
+		event.preventDefault();
+		let button = $(event.currentTarget);
+		let r = new Roll(button.data('roll'), this.actor.getRollData());
+		return r.toMessage({
+			user: game.user.id,
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
+		})
+
+	}
 }
