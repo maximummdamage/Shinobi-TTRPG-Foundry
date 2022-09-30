@@ -81,6 +81,9 @@ export class SRPGActorSheet extends ActorSheet {
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
+	// my listeners
+	html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
+
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {
       a.setAttribute("draggable", true);

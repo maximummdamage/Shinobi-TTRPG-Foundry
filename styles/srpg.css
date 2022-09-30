@@ -189,3 +189,7 @@ header .sheet-header {
 .sheet-tabs {
     max-height: 40;
 }
+
+.sheet-body .skills {
+	column-count: 3;
+}

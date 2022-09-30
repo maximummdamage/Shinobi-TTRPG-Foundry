@@ -31,5 +31,10 @@
 	"SRPG.skills": "skills",
 	"SRPG.inventory": "inventory",
 	"SRPG.techniques": "techniques",
-	"SRPG.bio": "bio"
+	"SRPG.bio": "bio",
+
+	"SRPG.dodge": "dodge",
+	"SRPG.initiative": "initiative",
+	
+	"SRPG.medic": "medic"
 }
