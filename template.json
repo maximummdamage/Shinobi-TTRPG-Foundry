@@ -54,24 +54,151 @@
 			"birthright": "",
 
 			"skills": {
+				"athletics": {
+					"value": 0,
+					"base": 0,
+					"stat": "str",
+					"label": "SRPG.athletics"
+				},
+				"acrobatics": {
+					"value": 0,
+					"base": 0,
+					"stat": "dex",
+					"label": "SRPG.acrobatics"
+				},
 				"dodge": {
 					"value": 0,
 					"base": 0,
 					"stat": "dex",
 					"label": "SRPG.dodge"
 				},
-				"initiative": {
+				"soh": {
 					"value": 0,
 					"base": 0,
 					"stat": "dex",
-					"label": "SRPG.initiative"
+					"label": "SRPG.soh"
+				},
+				"stealth": {
+					"value": 0,
+					"base": 0,
+					"stat": "dex",
+					"label": "SRPG.stealth"
+				},
+				"endurance": {
+					"value": 0,
+					"base": 0,
+					"stat": "con",
+					"label": "SRPG.endurance"
+				},
+				"appraise": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.appraise"
+				},
+				"chkcontrol": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.chkcontrol"
+				},
+				"disguise": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.disguise"
+				},
+				"education": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.education"
 				},
 				"medic": {
 					"value": 0,
 					"base": 0,
 					"stat": "int",
 					"label": "SRPG.medic"
+				},
+				"survival": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.survival"
+				},
+				"perception": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.perception"
+				},
+				"knowledge1": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.knowledge"
+				},
+				"knowledge2": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.knowledge"
+				},
+				"knowledge3": {
+					"value": 0,
+					"base": 0,
+					"stat": "int",
+					"label": "SRPG.knowledge"
+				},
+				"ah": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.ah"
+				},
+				"deception": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.deception"
+				},
+				"insight": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.insight"
+				},
+				"intimidate": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.intimidate"
+				},
+				"interrogate": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.interrogate"
+				},
+				"perform": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.perform"
+				},
+				"persuasion": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.persuasion"
+				},
+				"rt": {
+					"value": 0,
+					"base": 0,
+					"stat": "cha",
+					"label": "SRPG.rt"
 				}
+				
 			},
 
 			"attributes": {},

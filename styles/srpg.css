@@ -1,5 +1,11 @@
 /* CSS styles for Shinobi */
 
+/* rollables */
+.rollable:hover {
+	cursor: pointer;
+	text-shadow: 0 0 10px red;
+}
+
 /* header general */
 header .sheet-header {
     margin: 0px;
@@ -190,11 +196,46 @@ header .sheet-header {
     max-height: 40;
 }
 
-.sheet-body .skills {
-	column-count: 3;
+/* body things */
+
+/* skills */
+
+.skills .skills-grid {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
+.skills .skill {
+	display: grid;
+	grid-template-columns: 35px auto 25px 25px;
+}
 
+.skills .skill .grid-item {
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	padding: 2px; 
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.skills .skill .stat {
+	text-transform: uppercase;
+	min-width: 35px;
+}
+
+.skills .skill .label {
+	text-transform: capitalize;
+	min-width: 100px;
+}
+
+.skills .skill .ranks input {
+	border-style: none;
+	text-align: center;
+}
 
 /* chat message formatting (rolls mostly) */
 .skillroll {

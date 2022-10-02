@@ -44,8 +44,9 @@ export class SRPGActorSheet extends ActorSheet {
       async: true
     });
 
-	// call helper functions to prepare data
-	context.systemData = this._availableLevels(context.systemData);
+	  // call helper functions to prepare data
+	  context.systemData = this._availableLevels(context.systemData);
+
 
     return context;
   }
@@ -56,13 +57,15 @@ export class SRPGActorSheet extends ActorSheet {
    * calculates total levels in skills, then subtracts that from skill level to show total skill levels available
    */
   _availableLevels(systemData) {
-	// calculate total levels in skills
-	var totalSkills = 20;
-
+	  // calculate total levels in skills
+	  var totalSkills = 0;
+    for (let skill in systemData.skills) {
+      totalSkills += systemData.skills[skill].value;
+    }
 	
-	// set availableLevels
-	systemData.availableLevels = systemData.skilllevel - totalSkills;
-	return systemData;
+	  // set availableLevels
+	  systemData.availableLevels = systemData.skilllevel - totalSkills;
+	  return systemData;
   }
 
 
@@ -84,8 +87,8 @@ export class SRPGActorSheet extends ActorSheet {
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
-	// my listeners
-	html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
+	  // my listeners
+	  html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
 
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {

@@ -26,7 +26,6 @@ export class SRPGActor extends Actor {
 	for (let skill in system.skills) {
 		let stat = system.skills[skill].stat;
 		system.skills[skill].base = system.skills[skill].value + system.statistics[stat].value;
-		console.log(system.skills[skill].base);
 	}
 	return system;
   }

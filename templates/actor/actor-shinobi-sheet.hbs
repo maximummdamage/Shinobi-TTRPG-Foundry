@@ -142,15 +142,18 @@
 	<section class="sheet-body">
 
 		<div class="tab skills" data-group="primary" data-tab="skills">
-			{{#each systemData.skills as |skill id|}}
-				<div class="skill">
-					<div class="label rollable" data-roll="d10+@systemData.statistics.{{skill.stat}}.value" data-label="{{localize skill.label}}">
-						{{localize skill.label}}
+			<div class="skills-grid">
+				{{#each systemData.skills as |skill id|}}
+					<div class="skill">
+						<div class="grid-item stat">{{skill.stat}}</div>
+						<div class="grid-item label rollable" data-roll="d10+{{skill.base}}" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
+						<div class="grid-item ranks">
+							<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
+						</div>
+						<div class="grid-item base">{{skill.base}}</div>
 					</div>
-					<input class="ranks" name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
-					<div class="base">{{skill.base}}</div>
-				</div>
-			{{/each}}
+				{{/each}}
+			</div>
 		</div>
 
 	</section>

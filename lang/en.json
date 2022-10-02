@@ -33,8 +33,26 @@
 	"SRPG.techniques": "techniques",
 	"SRPG.bio": "bio",
 
+	"SRPG.athletics": "athletics",
+	"SRPG.acrobatics": "acrobatics",
 	"SRPG.dodge": "dodge",
-	"SRPG.initiative": "initiative",
-	
-	"SRPG.medic": "medic"
+	"SRPG.soh": "sleight of hand",
+	"SRPG.stealth": "stealth",
+	"SRPG.endurance": "endurance",
+	"SRPG.appraise": "appraise",
+	"SRPG.chkcontrol": "chakra control",
+	"SRPG.disguise": "disugise",
+	"SRPG.education": "education",
+	"SRPG.medic": "medic",
+	"SRPG.survival": "survival",
+	"SRPG.perception": "perception",
+	"SRPG.knowledge": "knowledge",
+	"SRPG.ah": "animal handling",
+	"SRPG.deception": "deception",
+	"SRPG.insight": "insight",
+	"SRPG.intimidate": "intimidate",
+	"SRPG.interrogate": "interrogate",
+	"SRPG.perform": "perform",
+	"SRPG.persuasion": "persuasion",
+	"SRPG.rt": "resist torture"
 }
