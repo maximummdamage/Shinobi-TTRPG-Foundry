@@ -2,7 +2,14 @@
 	"Actor": {
 		"types": ["shinobi", "mook"],
 		"shinobi": {
-			"biography": "",
+			"bio": {
+				"appearance": "",
+				"injuries": "",
+				"motivation": "",
+				"personality": "",
+				"relationships": "",
+				"important": ""
+			},
 			"mw": false,
 			"unconcious": false,
 			"ce": false,

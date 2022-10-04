@@ -237,6 +237,21 @@ header .sheet-header {
 	text-align: center;
 }
 
+/* bio formatting */
+
+.bio .bio-grid {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.bio .bio-grid .bio-grid-item {
+	margin: 1px;
+}
+
+.bio .bio-grid .bio-grid-item textarea {
+	height: 100px;
+}
+
 /* chat message formatting (rolls mostly) */
 .skillroll {
 	text-transform: capitalize;

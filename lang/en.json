@@ -54,5 +54,12 @@
 	"SRPG.interrogate": "interrogate",
 	"SRPG.perform": "perform",
 	"SRPG.persuasion": "persuasion",
-	"SRPG.rt": "resist torture"
+	"SRPG.rt": "resist torture",
+
+	"SRPG.physicalappearance": "Physical Appearance (Body, Outfit, Posture):",
+	"SRPG.injuriesscars": "Major Injuries and Scars:",
+	"SRPG.beliefmotivation": "Beliefs, Ideologies, and Motivation:",
+	"SRPG.personalitytraits": "Personality Traits and Flaws:",
+	"SRPG.relationships": "Relationships (Friends, Enemies, Rivals):",
+	"SRPG.importantthings": "Important Places and Things:"
 }

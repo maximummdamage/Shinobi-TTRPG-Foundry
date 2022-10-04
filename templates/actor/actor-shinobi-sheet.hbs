@@ -134,13 +134,16 @@
 
 	{{!-- Sheet Tab Navigation --}}
 	<nav class="sheet-tabs tabs" data-group="primary">
-		<a class="item" data-tab="skills">{{localize 'SRPG.skills'}}</a>
-		<a class="item" data-tab="bio">{{localize 'SRPG.bio'}}</a>
+		<a class="item" data-tab="skills">{{localize "SRPG.skills"}}</a>
+		<a class="item" data-tab="inventory">{{localize "SRPG.inventory"}}</a>
+		<a class="item" data-tab="techniques">{{localize "SRPG.techniques"}}</a>
+		<a class="item" data-tab="bio">{{localize "SRPG.bio"}}</a>
 	</nav>
 
 	{{!-- Sheet Body --}}
 	<section class="sheet-body">
 
+		{{!-- skills tab --}}
 		<div class="tab skills" data-group="primary" data-tab="skills">
 			<div class="skills-grid">
 				{{#each systemData.skills as |skill id|}}
@@ -156,6 +159,45 @@
 			</div>
 		</div>
 
+		{{!-- TODO: inventory tab --}}
+		<div class="tab inventory" data-group="primary" data-tab="inventory">
+			<div class="temp">something</div>
+		</div>
+
+		{{!-- TODO: techniques tab --}}
+		<div class="tab techniques" data-group="primary" data-tab="techniques">
+			<div class="temp">something</div>
+		</div>
+
+		{{!-- bio tab --}}
+		<div class="tab bio" data-group="primary" data-tab="bio">
+			<div class="bio-grid">
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.physicalappearance"}}</div>
+					<textarea name="system.bio.appearance">{{systemData.bio.appearance}}</textarea>
+				</div>
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.injuriesscars"}}</div>
+					<textarea name="system.bio.injuries">{{systemData.bio.injuries}}</textarea>
+				</div>
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.beliefmotivation"}}</div>
+					<textarea name="system.bio.motivation">{{systemData.bio.motivation}}</textarea>
+				</div>
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.personalitytraits"}}</div>
+					<textarea name="system.bio.personality">{{systemData.bio.personality}}</textarea>
+				</div>
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.relationships"}}</div>
+					<textarea name="system.bio.relationships">{{systemData.bio.relationships}}</textarea>
+				</div>
+				<div class="bio-grid-item">
+					<div class="label">{{localize "SRPG.importantthings"}}</div>
+					<textarea name="system.bio.important">{{systemData.bio.important}}</textarea>
+				</div>
+			</div>
+		</div>
 	</section>
 
 
