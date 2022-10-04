@@ -201,17 +201,19 @@ header .sheet-header {
 /* skills */
 
 .skills .skills-grid {
+	margin: 1px;
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-rows: auto auto auto auto auto auto auto auto;
+	column-gap: 2px;
 }
 
-.skills .skill {
+.skills-grid .skill {
 	display: grid;
 	grid-template-columns: 35px auto 25px 25px;
 }
 
-.skills .skill .grid-item {
+.skills-grid .skill .grid-item {
 	border-style: solid;
 	border-width: 1px;
 	border-color: gray;
@@ -222,17 +224,59 @@ header .sheet-header {
 	align-items: center;
 }
 
-.skills .skill .stat {
+.skills-grid .skill .stat {
 	text-transform: uppercase;
 	min-width: 35px;
 }
 
-.skills .skill .label {
+.skills-grid .skill .label {
 	text-transform: capitalize;
 	min-width: 100px;
 }
 
-.skills .skill .ranks input {
+.skills-grid .skill .ranks input {
+	border-style: none;
+	text-align: center;
+}
+
+/* s2skills */
+
+.skills .s2skills-grid {
+	margin: 1px;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.s2skills-grid .skill {
+	grid-column: span 2;
+	display: grid;
+	grid-template-columns: 70px auto 25px 25px;
+}
+
+.s2skills-grid .skill .grid-item {
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	padding: 2px; 
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.s2skills-grid .initiative {
+	grid-column: 2 / span 2;
+}
+
+.s2skills-grid .skill .stats {
+	text-transform: uppercase;
+}
+
+.s2skills-grid .skill .label {
+	text-transform: capitalize;
+}
+
+.s2skills-grid .skill .ranks input {
 	border-style: none;
 	text-align: center;
 }
@@ -250,6 +294,7 @@ header .sheet-header {
 
 .bio .bio-grid .bio-grid-item textarea {
 	height: 100px;
+	font-family: sans-serif;
 }
 
 /* chat message formatting (rolls mostly) */

@@ -23,7 +23,7 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-	  formula: "1d20",
+	  formula: "1d10 + @s2skills.initiative.base",
 	  decimals: 2
 	};
   
@@ -60,7 +60,7 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 	  hint: "SETTINGS.SRPGInitFormulaL",
 	  scope: "world",
 	  type: String,
-	  default: "1d20",
+	  default: "1d10 + @s2skills.initiative.base",
 	  config: true,
 	  onChange: formula => _srpgUpdateInit(formula, true)
 	});

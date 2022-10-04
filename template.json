@@ -59,7 +59,6 @@
 			"rank": "",
 			"affiliation": "",
 			"birthright": "",
-
 			"skills": {
 				"athletics": {
 					"value": 0,
@@ -206,6 +205,43 @@
 					"label": "SRPG.rt"
 				}
 				
+			},
+			"s2skills": {
+				"taijutsu": {
+					"value": 0,
+					"base": 0,
+					"stat1": "str",
+					"stat2": "dex",
+					"label": "SRPG.taijutsu"
+				},
+				"bukijutsu": {
+					"value": 0,
+					"base": 0,
+					"stat1": "str",
+					"stat2": "dex",
+					"label": "SRPG.bukijutsu"
+				},
+				"ninjutsu": {
+					"value": 0,
+					"base": 0,
+					"stat1": "dex",
+					"stat2": "int",
+					"label": "SRPG.ninjutsu"
+				},
+				"genjutsu": {
+					"value": 0,
+					"base": 0,
+					"stat1": "int",
+					"stat2": "cha",
+					"label": "SRPG.genjutsu"
+				},
+				"initiative": {
+					"value": 0,
+					"base": 0,
+					"stat1": "dex",
+					"stat2": "int",
+					"label": "SRPG.initiative"
+				}
 			},
 
 			"attributes": {},

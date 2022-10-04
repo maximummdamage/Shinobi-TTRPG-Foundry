@@ -55,6 +55,11 @@
 	"SRPG.perform": "perform",
 	"SRPG.persuasion": "persuasion",
 	"SRPG.rt": "resist torture",
+	"SRPG.taijutsu": "taijutsu",
+	"SRPG.bukijutsu": "bukijutsu",
+	"SRPG.ninjutsu": "ninjutsu",
+	"SRPG.genjutsu": "genjutsu",
+	"SRPG.initiative": "initiative",
 
 	"SRPG.physicalappearance": "Physical Appearance (Body, Outfit, Posture):",
 	"SRPG.injuriesscars": "Major Injuries and Scars:",

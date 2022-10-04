@@ -145,6 +145,7 @@
 
 		{{!-- skills tab --}}
 		<div class="tab skills" data-group="primary" data-tab="skills">
+			{{!-- skills with one stat --}}
 			<div class="skills-grid">
 				{{#each systemData.skills as |skill id|}}
 					<div class="skill">
@@ -154,6 +155,19 @@
 							<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 						</div>
 						<div class="grid-item base">{{skill.base}}</div>
+					</div>
+				{{/each}}
+			</div>
+			{{!-- skills with two stats --}}
+			<div class="s2skills-grid">
+				{{#each systemData.s2skills as |s2skill id|}}
+					<div class="skill {{id}}">
+						<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
+						<div class="grid-item label rollable" data-roll="d10+{{s2skill.base}}" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
+						<div class="grid-item ranks">
+							<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
+						</div>
+						<div class="grid-item base">{{s2skill.base}}</div>
 					</div>
 				{{/each}}
 			</div>
