@@ -27,12 +27,24 @@
 				"max": 5
 			},
 			"bio": {
-				"appearance": "",
-				"injuries": "",
-				"motivation": "",
-				"personality": "",
-				"relationships": "",
-				"important": ""
+				"appearance": {
+					"text": ""
+				},
+				"injuries": {
+					"text": ""
+				},
+				"motivation": {
+					"text": ""
+				},
+				"personality": {
+					"text": ""
+				},
+				"relationships": {
+					"text": ""
+				},
+				"important": {
+					"text": ""
+				}
 			},
 			"statistics": {
 				"str": {

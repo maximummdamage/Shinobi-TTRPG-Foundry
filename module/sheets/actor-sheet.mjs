@@ -35,12 +35,17 @@ export class SRPGActorSheet extends ActorSheet {
         //    secrets: this.document.isOwner,
         //    async: true
         //});
-
+		
         // helper functions
+		context.systemData = this._availableLevels(context.systemData);
+		context.systemData = this._prepareDataLabels(context.systemData);
+		context.systemData = this._prepareDataBools(context.systemData);
+
         return context;
     }
 
     /* helper functions for getData() */
+
     /**
      * calculates total skill levels available
      */
@@ -55,6 +60,30 @@ export class SRPGActorSheet extends ActorSheet {
         systemData.availableLevels = systemData.skilllevel - totalSkills;
         return systemData;
     }
+
+	/**
+	 * prepare labels for data
+	 */
+	_prepareDataLabels(systemData) {
+		// set necessary labels
+		systemData.bio.appearance.label = "SRPG.physicalappearance";
+		systemData.bio.injuries.label = "SRPG.injuriesscars";
+		systemData.bio.motivation.label = "SRPG.beliefmotivation";
+		systemData.bio.personality.label = "SRPG.personalitytraits";
+		systemData.bio.relationships.label = "SRPG.relationships";
+		systemData.bio.important.label = "SRPG.importantthings";
+
+		return systemData;
+	}
+
+	_prepareDataBools(systemData) {
+		// set necessary bools
+		systemData.s2skills.initiative.isInitiative = true;
+
+		return systemData;
+	}
+
+	/* end helper functions */
 
     /** @inheritdoc */
     activateListeners(html) {
