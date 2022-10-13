@@ -1,21 +1,19 @@
 {
 	"Actor": {
 		"types": ["shinobi", "mook"],
+		"templates": {},
 		"shinobi": {
-			"bio": {
-				"appearance": "",
-				"injuries": "",
-				"motivation": "",
-				"personality": "",
-				"relationships": "",
-				"important": ""
-			},
 			"mw": false,
 			"unconcious": false,
 			"ce": false,
+			"skilllevel": 0,
+			"age": "",
+			"rank": "",
+			"affiliation": "",
+			"birthright": "",
 			"hp": {
 				"value": 10,
-				"min": 0,
+				"min": 0, 
 				"max": 10
 			},
 			"chakra": {
@@ -27,6 +25,14 @@
 				"value": 5,
 				"min": 0,
 				"max": 5
+			},
+			"bio": {
+				"appearance": "",
+				"injuries": "",
+				"motivation": "",
+				"personality": "",
+				"relationships": "",
+				"important": ""
 			},
 			"statistics": {
 				"str": {
@@ -54,11 +60,6 @@
 					"min": 0
 				}
 			},
-			"skilllevel": 0,
-			"age": 0,
-			"rank": "",
-			"affiliation": "",
-			"birthright": "",
 			"skills": {
 				"athletics": {
 					"value": 0,
@@ -142,19 +143,22 @@
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"knowledge2": {
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"knowledge3": {
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"ah": {
 					"value": 0,
@@ -204,7 +208,6 @@
 					"stat": "cha",
 					"label": "SRPG.rt"
 				}
-				
 			},
 			"s2skills": {
 				"taijutsu": {
@@ -242,17 +245,10 @@
 					"stat2": "int",
 					"label": "SRPG.initiative"
 				}
-			},
-
-			"attributes": {},
-			"groups": {}
+			}
 		},
 		"mook": {
-			"hp": {
-				"value": 10,
-				"min": 0,
-				"max": 10
-			}
+
 		}
 	},
 	"Item": {
@@ -260,9 +256,7 @@
 		"item": {
 			"description": "",
 			"quantity": 1,
-			"weight": 0,
-			"attributes": {},
-			"groups": {}
+			"weight": 0
 		}
 	}
 }

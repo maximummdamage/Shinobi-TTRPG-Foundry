@@ -1,11 +1,11 @@
 {
-    "id": "srpg",
+	"id": "srpg",
 	"title": "Shinobi",
 	"description": "A tabletop roleplaying game inspired by the Naruto universe",
 	"version": "0.0.1",
 	"compatibility": {
 		"minimum": "10",
-		"verified": "10.285"
+		"verified": "10.288"
 	},
 	"authors": [
 		{
@@ -22,7 +22,7 @@
 	"languages": [
 		{
 			"lang": "en",
-			"name": "English",
+			"name": "english",
 			"path": "./lang/en.json"
 		}
 	],
