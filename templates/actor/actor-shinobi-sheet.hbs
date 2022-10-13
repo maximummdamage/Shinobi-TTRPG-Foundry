@@ -150,7 +150,7 @@
 				{{#each systemData.skills as |skill id|}}
 					<div class="skill">
 						<div class="grid-item stat">{{skill.stat}}</div>
-						<div class="grid-item label rollable" data-roll="d10+{{skill.base}}" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
+						<div class="grid-item label rollable" data-roll="d10+@system.skills.{{id}}.base" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
 						<div class="grid-item ranks">
 							<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 						</div>
@@ -163,7 +163,11 @@
 				{{#each systemData.s2skills as |s2skill id|}}
 					<div class="skill {{id}}">
 						<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
+						{{#if isInitiative}}
+						<div class="grid-item label rollable" data-action="rollInit" data-roll="d10+@system.s2skills.{{id}}.base" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
+						{{else}}
 						<div class="grid-item label rollable" data-roll="d10+{{s2skill.base}}" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
+						{{/if}}
 						<div class="grid-item ranks">
 							<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
 						</div>
@@ -186,30 +190,12 @@
 		{{!-- bio tab --}}
 		<div class="tab bio" data-group="primary" data-tab="bio">
 			<div class="bio-grid">
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.physicalappearance"}}</div>
-					<textarea name="system.bio.appearance">{{systemData.bio.appearance}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.injuriesscars"}}</div>
-					<textarea name="system.bio.injuries">{{systemData.bio.injuries}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.beliefmotivation"}}</div>
-					<textarea name="system.bio.motivation">{{systemData.bio.motivation}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.personalitytraits"}}</div>
-					<textarea name="system.bio.personality">{{systemData.bio.personality}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.relationships"}}</div>
-					<textarea name="system.bio.relationships">{{systemData.bio.relationships}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.importantthings"}}</div>
-					<textarea name="system.bio.important">{{systemData.bio.important}}</textarea>
-				</div>
+				{{#each systemData.bio as |bioitem id|}}
+					<div class="bio-grid-item">
+						<div class="label">{{localize bioitem.label}}</div>
+						<textarea name="system.bio.{{id}}.text">{{bioitem.text}}</textarea>
+					</div>
+				{{/each}}
 			</div>
 		</div>
 	</section>

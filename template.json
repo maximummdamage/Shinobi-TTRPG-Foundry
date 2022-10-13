@@ -3,12 +3,30 @@
 		"types": ["shinobi", "mook"],
 		"shinobi": {
 			"bio": {
-				"appearance": "",
-				"injuries": "",
-				"motivation": "",
-				"personality": "",
-				"relationships": "",
-				"important": ""
+				"appearance": {
+					"text": "",
+					"label": "SRPG.physicalappearance"
+				},
+				"injuries": {
+					"text": "",
+					"label": "SRPG.injuriesscars"
+				},
+				"motivation": {
+					"text": "",
+					"label": "SRPG.beliefmotivation"
+				},
+				"personality": {
+					"text": "",
+					"label": "SRPG.personalitytraits"
+				},
+				"relationships": {
+					"text": "",
+					"label": "SRPG.relationships"
+				},
+				"important": {
+					"text": "",
+					"label": "SRPG.importantthings"
+				}
 			},
 			"mw": false,
 			"unconcious": false,
