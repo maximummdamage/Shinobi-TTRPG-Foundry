@@ -148,12 +148,18 @@ export class SRPGActorSheet extends ActorSheet {
     _onSkillRoll(event) {
         event.preventDefault();
         let button = $(event.currentTarget);
-        let r = new Roll(button.data('roll'), this.actor.getRollData());
-        return r.toMessage({
-            user: game.user.id,
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
-        })
-
+		// if this is an initiative roll, add the unit to the combat and roll their initiative
+		if (button.data('action') == "rollInit") {
+			this.actor.rollInitiative({ createCombatants: true });
+		} 
+		// otherwise roll normally
+		else {
+        	let r = new Roll(button.data('roll'), this.actor.getRollData());
+        	return r.toMessage({
+        	    user: game.user.id,
+        	    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        	    flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
+        	})
+		}
     }
 }
