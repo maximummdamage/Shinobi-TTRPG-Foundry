@@ -264,11 +264,14 @@
 		}
 	},
 	"Item": {
-		"types": ["item"],
-		"item": {
+		"types": ["physical", "technique"],
+		"physical": {
 			"description": "",
 			"quantity": 1,
 			"weight": 0
+		}, 
+		"technique": {
+			"description": ""
 		}
 	}
 }

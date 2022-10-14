@@ -1,8 +1,10 @@
 // document import
-import { SRPGActor } from "./documents/actor.mjs"
+import { SRPGActor } from "./documents/actor.mjs";
+import { SRPGItem } from "./documents/item.mjs";
 
 // sheet imports
-import { SRPGActorSheet } from "./sheets/actor-sheet.mjs"
+import { SRPGActorSheet } from "./sheets/actor-sheet.mjs";
+import { SRPGItemSheet } from "./sheets/item-sheet.mjs";
 
 // other imports
 import { preloadHandlebarsTemplates } from "./templates.js";
@@ -27,22 +29,17 @@ Hooks.once("init", async function() {
 
     // Define custom Document Classes
     CONFIG.Actor.documentClass = SRPGActor;
-    //CONFIG.Item.documentClass = SRPGItem;
+    CONFIG.Item.documentClass = SRPGItem;
     // token document class
     // token object class
 
     // register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("srpg", SRPGActorSheet, {makeDefault: true});
-    // TODO: repeat for items
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet("srpg", SRPGItemSheet, {makeDefault: true});
 
     // Register system settings if
-
-    // Register initiative setting
-
-    // Retrieve and assign initiative formula setting
-
-    // update initiative formula
 
     await preloadHandlebarsTemplates();
 });

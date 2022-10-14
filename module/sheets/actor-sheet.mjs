@@ -40,7 +40,6 @@ export class SRPGActorSheet extends ActorSheet {
 		context.systemData = this._availableLevels(context.systemData);
 		context.systemData = this._prepareDataLabels(context.systemData);
 		context.systemData = this._prepareDataBools(context.systemData);
-
         return context;
     }
 
