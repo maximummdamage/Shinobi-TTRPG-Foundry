@@ -106,8 +106,8 @@
 					</div>
 					<div class="other-label">{{localize "SRPG.available-levels"}}</div>
 					<div class="other-data" name="available-levels">{{systemData.availableLevels}}</div>
-					<div class="other-label">{{localize "SRPG.something"}}</div>
-					<div class="other-data" name="something" text="sampletext"></div>
+					<div class="other-label">{{localize "SRPG.damageBonus"}}</div>
+					<div class="other-data" name="system.damageBonus">{{systemData.damageBonus}}</div>
 				</div>
 			</div>
 		</div>
@@ -118,7 +118,7 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item" data-tab="skills">{{localize "SRPG.skills"}}</a>
 		<a class="item" data-tab="inventory">{{localize "SRPG.inventory"}}</a>
-		<a class="item" data-tab="techniques">{{localize "SRPG.techniques"}}</a>
+		<a class="item" data-tab="techniques">{{localize "SRPG.trainingtechniques"}}</a>
 		<a class="item" data-tab="bio">{{localize "SRPG.bio"}}</a>
 	</nav>
 
@@ -166,7 +166,26 @@
 
 		{{!-- TODO: techniques tab --}}
 		<div class="tab techniques" data-group="primary" data-tab="techniques">
-			<div class="temp">something</div>
+			<div class="training-grid">
+				{{#each systemData.trainings as |training id|}}
+				<div class="training {{id}}">
+					<div class="grid-item label">{{localize training.label}}</div>
+					<div class="grid-item ranks">
+						<input name="system.trainings.{{id}}.value" type="number" value="{{training.value}}" />
+					</div> 
+				</div>
+				{{/each}}
+			</div>
+			<hr>
+			<div class="techniques-list">
+				{{#each items.technique as |section id|}}
+				<div class="list-section">
+					<div class="list-item section-heading">
+						<div class="item-name">{{localize section.label}}</div>
+					</div>
+				</div>
+				{{/each}}
+			</div> 
 		</div>
 
 		{{!-- bio tab --}}

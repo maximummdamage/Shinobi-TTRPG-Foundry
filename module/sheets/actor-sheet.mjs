@@ -40,6 +40,8 @@ export class SRPGActorSheet extends ActorSheet {
 		context.systemData = this._availableLevels(context.systemData);
 		context.systemData = this._prepareDataLabels(context.systemData);
 		context.systemData = this._prepareDataBools(context.systemData);
+        context.items = this._sortItems(context.items);
+        console.log(context);
         return context;
     }
 
@@ -72,6 +74,17 @@ export class SRPGActorSheet extends ActorSheet {
 		systemData.bio.relationships.label = "SRPG.relationships";
 		systemData.bio.important.label = "SRPG.importantthings";
 
+        systemData.trainings.shuriken.label = "SRPG.shuriken";
+        systemData.trainings.sword.label = "SRPG.sword";
+        systemData.trainings.staff.label = "SRPG.staff";
+        systemData.trainings.bow.label = "SRPG.bow";
+        systemData.trainings.kusarigama.label = "SRPG.kusarigama";
+        systemData.trainings.fire.label = "SRPG.fire";
+        systemData.trainings.wind.label = "SRPG.wind";
+        systemData.trainings.lightning.label = "SRPG.lightning";
+        systemData.trainings.earth.label = "SRPG.earth";
+        systemData.trainings.water.label = "SRPG.water";
+
 		return systemData;
 	}
 
@@ -81,6 +94,103 @@ export class SRPGActorSheet extends ActorSheet {
 
 		return systemData;
 	}
+
+    _sortItems(items) {
+        // sort items into groups based on their type
+        let taijutsu = new Array();
+        let bukijutsu = new Array();
+        let ninjutsu = new Array();
+        let genjutsu = new Array();
+
+        let outfits = new Array();
+        let weapons = new Array();
+        let equipment = new Array();
+        let misc = new Array();
+
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            
+            if (item.type == "technique") {
+                switch(item.system.type) {
+                    case 0:
+                        taijutsu.push(item);
+                        break;
+                    case 1:
+                        bukijutsu.push(item);
+                        break;
+                    case 2:
+                        ninjutsu.push(item);
+                        break;
+                    case 3:
+                        genjutsu.push(item);
+                        break;
+                    default:
+                        // if default necessary
+                }
+            }
+            else {
+                switch(item.type) {
+                    case "outfit":
+                        outfits.push(item);
+                        break;
+                    case "weapon":
+                        weapons.push(item);
+                        break;
+                    case "equipment":
+                        equipment.push(item);
+                        break;
+                    case "misc":
+                        misc.push(item);
+                        break;
+                    default: 
+                        // default if necessary
+                }
+            }
+        }
+
+        // TODO: im sure there's a simpler way to do this, but I can't figure it out right now
+        // setup for new object to be passed back
+        var newitems = new Object();
+        var physical = new Object();
+        var technique = new Object();
+        // put arrays into physical obj
+        physical.outfits = new Object();
+        physical.weapons = new Object();
+        physical.equipment = new Object();
+        physical.misc = new Object();
+
+        physical.outfits.list = outfits;
+        physical.weapons.list = weapons;
+        physical.equipment.list = equipment;
+        physical.misc.list = misc;
+
+        technique.taijutsu = new Object();
+        technique.bukijutsu = new Object();
+        technique.ninjutsu = new Object();
+        technique.genjutsu = new Object();
+
+        technique.taijutsu.list = taijutsu;
+        technique.bukijutsu.list = bukijutsu;
+        technique.ninjutsu.list = ninjutsu;
+        technique.genjutsu.list = genjutsu;
+
+        // add labels 
+        physical.outfits.label = "SRPG.outfits";
+        physical.weapons.label = "SRPG.weapons";
+        physical.equipment.label = "SRPG.equipment";
+        physical.misc.label = "SRPG.misc";
+
+        technique.taijutsu.label = "SRPG.taijutsu";
+        technique.bukijutsu.label = "SRPG.bukijutsu";
+        technique.ninjutsu.label = "SRPG.ninjutsu";
+        technique.genjutsu.label = "SRPG.genjutsu";
+
+        // put physical and technique objects into newitems obj
+        newitems.physical = physical;
+        newitems.technique = technique;
+
+        return newitems;
+    }
 
 	/* end helper functions */
 

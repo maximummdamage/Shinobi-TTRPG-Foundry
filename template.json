@@ -257,6 +257,38 @@
 					"stat2": "int",
 					"label": "SRPG.initiative"
 				}
+			},
+			"trainings": {
+				"shuriken": {
+					"value": 0
+				},
+				"sword": {
+					"value": 0
+				},
+				"staff": {
+					"value": 0
+				},
+				"bow": {
+					"value": 0
+				},
+				"kusarigama": {
+					"value": 0
+				},
+				"fire": {
+					"value": 0
+				},
+				"wind": {
+					"value": 0
+				},
+				"lightning": {
+					"value": 0
+				},
+				"earth": {
+					"value": 0
+				},
+				"water": {
+					"value": 0
+				}
 			}
 		},
 		"mook": {
@@ -264,14 +296,36 @@
 		}
 	},
 	"Item": {
-		"types": ["physical", "technique"],
-		"physical": {
-			"description": "",
-			"quantity": 1,
-			"weight": 0
+		"types": ["outfit", "equipment", "weapon", "misc", "technique"],
+		"templates": {
+			"baseItem": {
+				"description": "",
+				"quantity": 1,
+				"size": "",
+				"ope": 0,
+				"price": 0
+			}
+		},
+		"outfit": {
+			"templates": ["baseItem"],
+			"armor": 0
 		}, 
+		"equipment": {
+			"templates": ["baseItem"]
+		},
+		"weapon": {
+			"templates": ["baseItem"],
+			"technique": "",
+			"skill": "",
+			"damage": "",
+			"stat": "any"
+		},
+		"misc": {
+			"templates": ["baseItem"]
+		},
 		"technique": {
-			"description": ""
+			"description": "",
+			"type": 0
 		}
 	}
 }

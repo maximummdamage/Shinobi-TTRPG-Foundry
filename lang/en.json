@@ -23,10 +23,11 @@
     "SRPG.ce": "chakra exhaustion",
     "SRPG.skilllevel": "skill level",
     "SRPG.available-levels": "available levels",
+	"SRPG.damageBonus": "damage bonus",
 
     "SRPG.skills": "skills",
 	"SRPG.inventory": "inventory",
-	"SRPG.techniques": "techniques",
+	"SRPG.trainingtechniques": "training/techniques",
 	"SRPG.bio": "bio",
 
     "SRPG.athletics": "athletics",
@@ -56,6 +57,17 @@
 	"SRPG.ninjutsu": "ninjutsu",
 	"SRPG.genjutsu": "genjutsu",
 	"SRPG.initiative": "initiative",
+
+	"SRPG.shuriken": "shuriken",
+	"SRPG.sword": "sword",
+	"SRPG.staff": "staff",
+	"SRPG.bow": "bow",
+	"SRPG.kusarigama": "kusarigama",
+	"SRPG.fire": "fire",
+	"SRPG.wind": "wind",
+	"SRPG.lightning": "lightning",
+	"SRPG.earth": "earth",
+	"SRPG.water": "water",
 
     "SRPG.physicalappearance": "Physical Appearance (Body, Outfit, Posture):",
 	"SRPG.injuriesscars": "Major Injuries and Scars:",

@@ -15,10 +15,15 @@ export class SRPGItemSheet extends ItemSheet {
         });
     }
 
-    ///** @inheritdoc */
-    //get template() {
-    //    return `systems/srpg/templates/item/item-${this.item.type}-sheet.hbs`;
-    //}
+    /** @inheritdoc */
+    get template() {
+        if (this.item.type = "technique") {
+            return `systems/srpg/templates/item/item-technique-sheet.hbs`;
+        }
+        else {
+            return `systems/srpg/templates/item/item-physical-sheet.hbs`;
+        }
+    }
 
     /** @inheritdoc */
     async getData(options) {

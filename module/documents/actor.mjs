@@ -6,7 +6,7 @@ export class SRPGActor extends Actor {
     /** @inheritdoc */
     prepareDerivedData() {
         super.prepareDerivedData();
-        
+
         // call function based on actor type
         if (this.type == "shinobi") { this._prepareShinobiData(); }
         if (this.type == "mook") { this._prepareMookData(); }
@@ -19,6 +19,7 @@ export class SRPGActor extends Actor {
      */
     _prepareShinobiData() {
         this.system = this._prepareSkillBase(this.system);
+        this.system = this._prepareDerivedStats(this.system);
     }
 
     /**
@@ -44,5 +45,14 @@ export class SRPGActor extends Actor {
 	    	system.s2skills[skill2].base = system.s2skills[skill2].value + Math.max(system.statistics[stat1].value, system.statistics[stat2].value);
 	    }
 	    return system;
+    }
+
+    /**
+     * prepare any derived stats for rolls
+     */
+    _prepareDerivedStats(system) {
+        system.damageBonus = Math.trunc(system.statistics.str.value / 4);
+
+        return system;
     }
 }
