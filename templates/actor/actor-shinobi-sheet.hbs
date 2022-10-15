@@ -180,9 +180,25 @@
 			<div class="techniques-list">
 				{{#each items.technique as |section id|}}
 				<div class="list-section">
-					<div class="list-item section-heading">
-						<div class="item-name">{{localize section.label}}</div>
+					<div class="section-heading">
+						<div class="section-name">{{localize section.label}}</div>
+						<div class="ckrcost-label">{{localize "SRPG.chakracost"}}</div>
+						<div class="apcost-label">{{localize "SRPG.apcost"}}</div>
+						<div class="range-label">{{localize "SRPG.range"}}</div>
+						<div class="ranks-label">{{localize "SRPG.ranks"}}</div>
+						<div class="max-ranks-label">{{localize "SRPG.max"}}</div>
 					</div>
+					{{#each section.list as |technique tid|}}
+					<div class="list-item">
+						<img class="technique-icon" src="{{technique.img}}" />
+						<div class="technique-name">{{technique.name}}</div>
+						<div class="technique-chakra-cost">{{technique.system.chakraCost}}</div>
+						<div class="technique-ap-cost">{{technique.system.apCost}}</div>
+						<div class="technique-range-number">{{technique.system.range}}</div>
+						<div class="technique-range-unit">{{technique.system.rangeUnit}}</div>
+						<div class="technique-ranks">{{technique.system.rank}}</div>
+					</div>
+					{{/each}}
 				</div>
 				{{/each}}
 			</div> 

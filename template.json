@@ -318,6 +318,8 @@
 			"technique": "",
 			"skill": "",
 			"damage": "",
+			"range": 0,
+			"rangeUnit": "",
 			"stat": "any"
 		},
 		"misc": {
@@ -325,7 +327,14 @@
 		},
 		"technique": {
 			"description": "",
-			"type": 0
+			"type": 0,
+			"chakraCost": 0,
+			"per": "",
+			"apCost": 0,
+			"range": 0,
+			"rangeUnit": "yd",
+			"rank": 0,
+			"maxRank": 0
 		}
 	}
 }
