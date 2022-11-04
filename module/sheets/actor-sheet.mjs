@@ -41,7 +41,7 @@ export class SRPGActorSheet extends ActorSheet {
 		context.systemData = this._prepareDataLabels(context.systemData);
 		context.systemData = this._prepareDataBools(context.systemData);
         context.items = this._sortItems(context.items);
-        console.log(context);
+        //console.log(context);
         return context;
     }
 
@@ -206,7 +206,8 @@ export class SRPGActorSheet extends ActorSheet {
         html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
         // my listeners
-        html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
+        //html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
+		html.find(".rollable").on("click", this._onRoll.bind(this));
 
     }
 
@@ -271,4 +272,23 @@ export class SRPGActorSheet extends ActorSheet {
         	})
 		}
     }
+
+	/**
+	 * @param {MouseEvent} event
+	 */
+	async _onRoll(event) {
+		event.preventDefault();
+		let button = $(event.currentTarget);
+		const content = await renderTemplate('systems/srpg/templates/chat/roll-config.hb', this.getData());
+		console.log(content);
+		let thing = await new Promise( resolve => 
+			{new Dialog({
+				title: 'Configure Roll',
+				content,
+				buttons: {},
+				close: () => { resolve(null) }
+			}).render(true);
+		});
+		console.log(thing);
+	}
 }
