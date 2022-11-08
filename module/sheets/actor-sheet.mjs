@@ -278,8 +278,44 @@ export class SRPGActorSheet extends ActorSheet {
 	 */
 	async _onRoll(event) {
 		event.preventDefault();
+		
+		// get button handle for gathering data
 		let button = $(event.currentTarget);
-		const content = await renderTemplate('systems/srpg/templates/chat/roll-config.hb', this.getData());
+
+		// data object setup
+		const id = button.data('id');
+		const category = button.data('category');
+		const context = await this.getData();
+		let statval = context.systemData[category][id].base
+		console.log(statval);
+		let data = {
+			name: game.i18n.localize(context.systemData[category][id].label),
+			statname: context.systemData[category][id].stat, 
+			statval: context.systemData[category][id].base,
+			skillval: context.systemData[category][id].value
+		};
+
+		// content setup
+		//const content = await renderTemplate('systems/srpg/templates/chat/roll-config.hbs', data);
+		// content setup 2
+		//const content = `<div>${
+		//	game.i18n.format("{value}", data)
+		//}</div>`
+
+		const content = game.i18n.format(
+		`<div class="skillroll-config">
+			<div class="roll-name label">${game.i18n.localize("SRPG.rollingfor")}</div>
+			<div class="roll-name data">{name}</div>
+			<div class="roll-stat label">{statname}</div>
+			<div class="roll-stat data">{statval}</div>
+			<div class="roll-ranks label">${game.i18n.localize("SRPG.ranks")}</div>
+			<div class="roll-ranks data">{skillval}</div>
+			<div class="roll-bonus label">${game.i18n.localize("SRPG.situationalbonus")}</div>
+			<div class="roll-bonus value">
+				<input name="roll-bonus-value" value=""/>
+			</div>
+		</div>`, data);
+
 		console.log(content);
 		let thing = await new Promise( resolve => 
 			{new Dialog({

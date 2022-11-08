@@ -307,3 +307,20 @@ header .sheet-header {
 .skillroll {
 	text-transform: capitalize;
 }
+
+.skillroll-config {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.skillroll-config .label {
+	text-transform: capitalize;
+}
+
+.skillroll-config .data {
+	text-transform: capitalize;
+}
+
+.skillroll-config .roll-stat {
+	text-transform: uppercase;
+}

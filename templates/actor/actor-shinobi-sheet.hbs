@@ -132,7 +132,7 @@
 				{{#each systemData.skills as |skill id|}}
 				<div class="skill">
 					<div class="grid-item stat">{{skill.stat}}</div>
-					<div class="grid-item label rollable" data-roll="d10+@skills.{{id}}.base" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
+					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 					</div>

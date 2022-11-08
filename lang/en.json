@@ -74,5 +74,10 @@
 	"SRPG.beliefmotivation": "Beliefs, Ideologies, and Motivation:",
 	"SRPG.personalitytraits": "Personality Traits and Flaws:",
 	"SRPG.relationships": "Relationships (Friends, Enemies, Rivals):",
-	"SRPG.importantthings": "Important Places and Things:"
+	"SRPG.importantthings": "Important Places and Things:",
+	
+	"SRPG.rollingfor": "Rolling for",
+	"SRPG.dice": "dice",
+	"SRPG.ranks": "ranks",
+	"SRPG.situationalbonus": "situational bonus"
 }
