@@ -207,7 +207,7 @@ export class SRPGActorSheet extends ActorSheet {
 
         // my listeners
         //html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
-		html.find(".rollable").on("click", this._onRoll.bind(this));
+		html.find(".rollable").on("click", this._onSkillRoll.bind(this));
 
     }
 
@@ -252,31 +252,31 @@ export class SRPGActorSheet extends ActorSheet {
         });
     }
 
-    /**
-     * @param {MouseEvent} event 
-     */
-    _onSkillRoll(event) {
-        event.preventDefault();
-        let button = $(event.currentTarget);
-		// if this is an initiative roll, add the unit to the combat and roll their initiative
-		if (button.data('action') == "rollInit") {
-			this.actor.rollInitiative({ createCombatants: true });
-		} 
-		// otherwise roll normally
-		else {
-        	let r = new Roll(button.data('roll'), this.actor.getRollData());
-        	return r.toMessage({
-        	    user: game.user.id,
-        	    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        	    flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
-        	})
-		}
-    }
+    ///**
+    // * @param {MouseEvent} event 
+    // */
+    //_onSkillRoll(event) {
+    //    event.preventDefault();
+    //    let button = $(event.currentTarget);
+	//	// if this is an initiative roll, add the unit to the combat and roll their initiative
+	//	if (button.data('action') == "rollInit") {
+	//		this.actor.rollInitiative({ createCombatants: true });
+	//	} 
+	//	// otherwise roll normally
+	//	else {
+    //    	let r = new Roll(button.data('roll'), this.actor.getRollData());
+    //    	return r.toMessage({
+    //    	    user: game.user.id,
+    //    	    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+    //    	    flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
+    //    	})
+	//	}
+    //}
 
 	/**
 	 * @param {MouseEvent} event
 	 */
-	async _onRoll(event) {
+	async _onSkillRoll(event) {
 		event.preventDefault();
 		
 		// get button handle for gathering data
@@ -291,7 +291,7 @@ export class SRPGActorSheet extends ActorSheet {
 		let data = {
 			name: game.i18n.localize(context.systemData[category][id].label),
 			statname: context.systemData[category][id].stat, 
-			statval: context.systemData[category][id].base,
+			statval: context.systemData[category][id].base - context.systemData[category][id].value,
 			skillval: context.systemData[category][id].value
 		};
 
@@ -303,7 +303,7 @@ export class SRPGActorSheet extends ActorSheet {
 		//}</div>`
 
 		const content = game.i18n.format(
-		`<div class="skillroll-config">
+		`<form class="skillroll-config">
 			<div class="roll-name label">${game.i18n.localize("SRPG.rollingfor")}</div>
 			<div class="roll-name data">{name}</div>
 			<div class="roll-stat label">{statname}</div>
@@ -311,20 +311,32 @@ export class SRPGActorSheet extends ActorSheet {
 			<div class="roll-ranks label">${game.i18n.localize("SRPG.ranks")}</div>
 			<div class="roll-ranks data">{skillval}</div>
 			<div class="roll-bonus label">${game.i18n.localize("SRPG.situationalbonus")}</div>
-			<div class="roll-bonus value">
-				<input name="roll-bonus-value" value=""/>
+			<div class="roll-bonus data">
+				<input name="roll-bonus-value" value="0" type="number"/>
 			</div>
-		</div>`, data);
+		</form>`, data);
 
-		console.log(content);
 		let thing = await new Promise( resolve => 
 			{new Dialog({
 				title: 'Configure Roll',
 				content,
-				buttons: {},
+				buttons: {
+					submit: {
+						label: game.i18n.localize("SRPG.submit"),
+						callback: this._submitSkillRoll
+					}
+				},
 				close: () => { resolve(null) }
 			}).render(true);
 		});
 		console.log(thing);
+	}
+
+	_submitSkillRoll(html) {
+		const formElement = html[0].querySelector('form');
+		const formData = new FormDataExtended(formElement);
+ 		const formDataObject = formData.object;
+		console.log(formDataObject['roll-bonus-value']);
+		return 0;
 	}
 }
