@@ -207,7 +207,7 @@ export class SRPGActorSheet extends ActorSheet {
 
         // my listeners
         //html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
-		html.find(".rollable").on("click", this._onSkillRoll.bind(this));
+		html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
 
     }
 
@@ -287,7 +287,6 @@ export class SRPGActorSheet extends ActorSheet {
 		const category = button.data('category');
 		const context = await this.getData();
 		let statval = context.systemData[category][id].base
-		console.log(statval);
 		let data = {
 			name: game.i18n.localize(context.systemData[category][id].label),
 			statname: context.systemData[category][id].stat, 
@@ -296,12 +295,6 @@ export class SRPGActorSheet extends ActorSheet {
 		};
 
 		// content setup
-		//const content = await renderTemplate('systems/srpg/templates/chat/roll-config.hbs', data);
-		// content setup 2
-		//const content = `<div>${
-		//	game.i18n.format("{value}", data)
-		//}</div>`
-
 		const content = game.i18n.format(
 		`<form class="skillroll-config">
 			<div class="roll-name label">${game.i18n.localize("SRPG.rollingfor")}</div>
@@ -316,6 +309,7 @@ export class SRPGActorSheet extends ActorSheet {
 			</div>
 		</form>`, data);
 
+		// create and resolve the dialogue
 		let thing = await new Promise( resolve => 
 			{new Dialog({
 				title: 'Configure Roll',
@@ -323,20 +317,26 @@ export class SRPGActorSheet extends ActorSheet {
 				buttons: {
 					submit: {
 						label: game.i18n.localize("SRPG.submit"),
-						callback: this._submitSkillRoll
+						callback: (html) => this._submitSkillRoll(html, id, category)
 					}
 				},
 				close: () => { resolve(null) }
 			}).render(true);
 		});
-		console.log(thing);
 	}
 
-	_submitSkillRoll(html) {
+	_submitSkillRoll(html, id, category) {
+		// get bonus from hmtl
 		const formElement = html[0].querySelector('form');
 		const formData = new FormDataExtended(formElement);
  		const formDataObject = formData.object;
-		console.log(formDataObject['roll-bonus-value']);
+		const bonus = formDataObject['roll-bonus-value'];
+
+
+		// check if initiative
+
+		// roll!
+
 		return 0;
 	}
 }
