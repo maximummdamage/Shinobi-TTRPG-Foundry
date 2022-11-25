@@ -37,10 +37,11 @@ export class SRPGActorSheet extends ActorSheet {
         //});
 		
         // helper functions
-		context.systemData = this._availableLevels(context.systemData);
+		// sort items first for use in _availableLevels()
+		context.items = this._sortItems(context.items);
+		context.systemData = this._availableLevels(context);
 		context.systemData = this._prepareDataLabels(context.systemData);
 		context.systemData = this._prepareDataBools(context.systemData);
-        context.items = this._sortItems(context.items);
         //console.log(context);
         return context;
     }
@@ -50,12 +51,25 @@ export class SRPGActorSheet extends ActorSheet {
     /**
      * calculates total skill levels available
      */
-    _availableLevels(systemData) {
-        // calculate total levels in skills
+    _availableLevels(context) {
+		let systemData = context.systemData;
+		let items = context.items;
+        // calculate total levels in skills, trainings, and techniques
         var totalSkills = 0;
         for (let skill in systemData.skills) {
             totalSkills += systemData.skills[skill].value;
         }
+		for (let s2skill in systemData.s2skills) {
+			totalSkills += systemData.s2skills[s2skill].value;
+		}
+		for (let training in systemData.trainings) {
+			totalSkills += systemData.trainings[training].value;
+		}
+		for (let category in items.technique) {
+			for (let i in items.technique[category]) {
+				totalSkills += items.technique[category][i].rank;
+			}
+		}
 
         // set availableLevels
         systemData.availableLevels = systemData.skilllevel - totalSkills;
@@ -206,7 +220,6 @@ export class SRPGActorSheet extends ActorSheet {
         html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
         // my listeners
-        //html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
 		html.find(".skills .rollable").on("click", this._onSkillRoll.bind(this));
 
     }
@@ -251,27 +264,6 @@ export class SRPGActorSheet extends ActorSheet {
             flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
         });
     }
-
-    ///**
-    // * @param {MouseEvent} event 
-    // */
-    //_onSkillRoll(event) {
-    //    event.preventDefault();
-    //    let button = $(event.currentTarget);
-	//	// if this is an initiative roll, add the unit to the combat and roll their initiative
-	//	if (button.data('action') == "rollInit") {
-	//		this.actor.rollInitiative({ createCombatants: true });
-	//	} 
-	//	// otherwise roll normally
-	//	else {
-    //    	let r = new Roll(button.data('roll'), this.actor.getRollData());
-    //    	return r.toMessage({
-    //    	    user: game.user.id,
-    //    	    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-    //    	    flavor: `<h2 class="skillroll">${button.data('label')}</h2>`
-    //    	})
-	//	}
-    //}
 
 	/**
 	 * @param {MouseEvent} event
@@ -325,6 +317,8 @@ export class SRPGActorSheet extends ActorSheet {
 		});
 	}
 
+
+	// recieve data from roll confirmation, create and submit roll object
 	_submitSkillRoll(html, id, category) {
 		// get bonus from hmtl
 		const formElement = html[0].querySelector('form');
@@ -332,11 +326,20 @@ export class SRPGActorSheet extends ActorSheet {
  		const formDataObject = formData.object;
 		const bonus = formDataObject['roll-bonus-value'];
 
-
 		// check if initiative
+		if (id == 'initiative') {
+			this.actor.rollInitiative({ createCombatants: true });
+		}
 
-		// roll!
-
-		return 0;
+		// otherwise: roll!
+		else {
+			console.log('rolling ' + game.i18n.localize(this.actor.getRollData()[category][id].label));
+			let r = new Roll(`1d10 + @${category}.${id}.base + ${bonus}`, this.actor.getRollData());
+			return r.toMessage({
+			    user: game.user.id,
+			    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			    flavor: `<h2 class="skillroll">${game.i18n.localize(this.actor.getRollData()[category][id].label)}</h2>`
+			})
+		}
 	}
 }

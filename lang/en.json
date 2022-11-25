@@ -79,5 +79,9 @@
 	"SRPG.rollingfor": "Rolling for",
 	"SRPG.dice": "dice",
 	"SRPG.ranks": "ranks",
-	"SRPG.situationalbonus": "situational bonus"
+	"SRPG.situationalbonus": "situational bonus",
+
+	"SRPG.chakracost": "CHK",
+	"SRPG.apcost": "AP",
+	"SRPG.range": "range"
 }

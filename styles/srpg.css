@@ -285,7 +285,73 @@ header .sheet-header {
 
 /* trainings */
 
+.techniques .training-grid {
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.techniques .training-grid .training {
+	border-style: solid;
+	border-radius: 0px;
+	border-width: 1px;
+	border-color: grey;
+
+	text-transform: capitalize;
+	text-align: center;
+
+	padding: 2px;
+}
+
+.techniques .training-grid .training input {
+	border-radius: 0px;
+	width: 50%
+}
+
 /* techniques */
+
+.techniques .techniques-list {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+}
+
+.techniques .techniques-list .list-section .section-heading {
+	display: grid;
+	grid-template-columns: 40% 10% 10% 20% 10% 10%
+}
+
+.techniques .techniques-list .list-section .section-heading .item {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-transform: capitalize;
+
+	height: 35px;
+}
+
+.techniques .techniques-list .list-section .list-item {
+	display: grid;
+	grid-template-columns: 5% 35% 10% 10% 10% 10% 10% 10%;
+}
+
+.techniques .techniques-list .list-section .list-item .litem {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
 
 /* bio formatting */
 

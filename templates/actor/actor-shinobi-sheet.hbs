@@ -132,7 +132,7 @@
 				{{#each systemData.skills as |skill id|}}
 				<div class="skill">
 					<div class="grid-item stat">{{skill.stat}}</div>
-					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
+					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}">{{localize skill.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 					</div>
@@ -145,11 +145,7 @@
 				{{#each systemData.s2skills as |s2skill id|}}
 				<div class="skill {{id}}">
 					<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
-					{{#if isInitiative}}
-					<div class="grid-item label rollable" data-action="rollInit" data-roll="d10+@s2skills.{{id}}.base" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
-					{{else}}
-					<div class="grid-item label rollable" data-roll="d10+@s2skills.{{id}}.base" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
-					{{/if}}
+					<div class="grid-item label rollable" data-category="s2skills" data-id="{{id}}">{{localize s2skill.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
 					</div>
@@ -181,22 +177,23 @@
 				{{#each items.technique as |section id|}}
 				<div class="list-section">
 					<div class="section-heading">
-						<div class="section-name">{{localize section.label}}</div>
-						<div class="ckrcost-label">{{localize "SRPG.chakracost"}}</div>
-						<div class="apcost-label">{{localize "SRPG.apcost"}}</div>
-						<div class="range-label">{{localize "SRPG.range"}}</div>
-						<div class="ranks-label">{{localize "SRPG.ranks"}}</div>
-						<div class="max-ranks-label">{{localize "SRPG.max"}}</div>
+						<div class="item section-name">{{localize section.label}}</div>
+						<div class="item ckrcost-label">{{localize "SRPG.chakracost"}}</div>
+						<div class="item apcost-label">{{localize "SRPG.apcost"}}</div>
+						<div class="item range-label">{{localize "SRPG.range"}}</div>
+						<div class="item ranks-label">{{localize "SRPG.ranks"}}</div>
+						<div class="item max-ranks-label">{{localize "SRPG.max"}}</div>
 					</div>
 					{{#each section.list as |technique tid|}}
 					<div class="list-item">
-						<img class="technique-icon" src="{{technique.img}}" />
-						<div class="technique-name">{{technique.name}}</div>
-						<div class="technique-chakra-cost">{{technique.system.chakraCost}}</div>
-						<div class="technique-ap-cost">{{technique.system.apCost}}</div>
-						<div class="technique-range-number">{{technique.system.range}}</div>
-						<div class="technique-range-unit">{{technique.system.rangeUnit}}</div>
-						<div class="technique-ranks">{{technique.system.rank}}</div>
+						<img class="litem technique-icon" src="{{technique.img}}" />
+						<div class="litem technique-name">{{technique.name}}</div>
+						<div class="litem technique-chakra-cost">{{technique.system.chakraCost}}</div>
+						<div class="litem technique-ap-cost">{{technique.system.apCost}}</div>
+						<div class="litem technique-range-number">{{technique.system.range}}</div>
+						<div class="litem technique-range-unit">{{technique.system.rangeUnit}}</div>
+						<div class="litem technique-ranks">{{technique.system.rank}}</div>
+						<div class="litem technique-ranks-max">{{technique.system.maxRank}}</div>
 					</div>
 					{{/each}}
 				</div>
