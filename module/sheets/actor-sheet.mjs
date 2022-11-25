@@ -67,7 +67,9 @@ export class SRPGActorSheet extends ActorSheet {
 		}
 		for (let category in items.technique) {
 			for (let i in items.technique[category]) {
-				totalSkills += items.technique[category][i].rank;
+				if (items.technique[category][i].rank >= 0) {
+					totalSkills += items.technique[category][i].rank;
+				}
 			}
 		}
 
