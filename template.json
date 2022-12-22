@@ -1,21 +1,19 @@
 {
 	"Actor": {
 		"types": ["shinobi", "mook"],
+		"templates": {},
 		"shinobi": {
-			"bio": {
-				"appearance": "",
-				"injuries": "",
-				"motivation": "",
-				"personality": "",
-				"relationships": "",
-				"important": ""
-			},
 			"mw": false,
 			"unconcious": false,
 			"ce": false,
+			"skilllevel": 0,
+			"age": "",
+			"rank": "",
+			"affiliation": "",
+			"birthright": "",
 			"hp": {
 				"value": 10,
-				"min": 0,
+				"min": 0, 
 				"max": 10
 			},
 			"chakra": {
@@ -27,6 +25,26 @@
 				"value": 5,
 				"min": 0,
 				"max": 5
+			},
+			"bio": {
+				"appearance": {
+					"text": ""
+				},
+				"injuries": {
+					"text": ""
+				},
+				"motivation": {
+					"text": ""
+				},
+				"personality": {
+					"text": ""
+				},
+				"relationships": {
+					"text": ""
+				},
+				"important": {
+					"text": ""
+				}
 			},
 			"statistics": {
 				"str": {
@@ -54,11 +72,6 @@
 					"min": 0
 				}
 			},
-			"skilllevel": 0,
-			"age": 0,
-			"rank": "",
-			"affiliation": "",
-			"birthright": "",
 			"skills": {
 				"athletics": {
 					"value": 0,
@@ -142,19 +155,22 @@
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"knowledge2": {
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"knowledge3": {
 					"value": 0,
 					"base": 0,
 					"stat": "int",
-					"label": "SRPG.knowledge"
+					"label": "SRPG.knowledge",
+					"name": ""
 				},
 				"ah": {
 					"value": 0,
@@ -204,7 +220,6 @@
 					"stat": "cha",
 					"label": "SRPG.rt"
 				}
-				
 			},
 			"s2skills": {
 				"taijutsu": {
@@ -243,26 +258,83 @@
 					"label": "SRPG.initiative"
 				}
 			},
-
-			"attributes": {},
-			"groups": {}
+			"trainings": {
+				"shuriken": {
+					"value": 0
+				},
+				"sword": {
+					"value": 0
+				},
+				"staff": {
+					"value": 0
+				},
+				"bow": {
+					"value": 0
+				},
+				"kusarigama": {
+					"value": 0
+				},
+				"fire": {
+					"value": 0
+				},
+				"wind": {
+					"value": 0
+				},
+				"lightning": {
+					"value": 0
+				},
+				"earth": {
+					"value": 0
+				},
+				"water": {
+					"value": 0
+				}
+			}
 		},
 		"mook": {
-			"hp": {
-				"value": 10,
-				"min": 0,
-				"max": 10
-			}
+
 		}
 	},
 	"Item": {
-		"types": ["item"],
-		"item": {
+		"types": ["outfit", "equipment", "weapon", "misc", "technique"],
+		"templates": {
+			"baseItem": {
+				"description": "",
+				"quantity": 1,
+				"size": "",
+				"ope": 0,
+				"price": 0
+			}
+		},
+		"outfit": {
+			"templates": ["baseItem"],
+			"armor": 0
+		}, 
+		"equipment": {
+			"templates": ["baseItem"]
+		},
+		"weapon": {
+			"templates": ["baseItem"],
+			"technique": "",
+			"skill": "",
+			"damage": "",
+			"range": 0,
+			"rangeUnit": "",
+			"stat": "any"
+		},
+		"misc": {
+			"templates": ["baseItem"]
+		},
+		"technique": {
 			"description": "",
-			"quantity": 1,
-			"weight": 0,
-			"attributes": {},
-			"groups": {}
+			"type": 0,
+			"chakraCost": 0,
+			"per": "",
+			"apCost": 0,
+			"range": 0,
+			"rangeUnit": "yd",
+			"rank": 0,
+			"maxRank": 0
 		}
 	}
 }

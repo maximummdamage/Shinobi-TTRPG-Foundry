@@ -2,7 +2,7 @@
 
 	{{!-- Sheet Header --}}
 	<header class="sheet-header">
-		
+        
 		<div class="header-grid">
 			{{!-- character info pane --}}
 			<div class="char-info header-grid-item">
@@ -10,7 +10,7 @@
 					<tr>
 						<td class="info-label">{{localize "SRPG.name"}}</td>
 						<td>
-							<input name="name" type="text" value="{{data.name}}" placeholder="Name" />
+							<input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
 						</td>
 					</tr>
 					<tr>
@@ -42,30 +42,12 @@
 
 			{{!-- character stat block --}}
 			<div class="stat-grid header-grid-item">
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.str"}}</p>
-					<input name="system.statistics.str.value" type="number" value="{{systemData.statistics.str.value}}" placeholder="str" />
+                {{#each systemData.statistics as |stat id|}}
+                <div class="stat">
+					<p class="statname">{{id}}</p>
+					<input name="system.statistics.{{id}}.value" type="number" value="{{stat.value}}" />
 				</div>
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.dex"}}</p>
-					<input name="system.statistics.dex.value" type="number" value="{{systemData.statistics.dex.value}}" placeholder="dex" />
-				</div>
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.con"}}</p>
-					<input name="system.statistics.con.value" type="number" value="{{systemData.statistics.con.value}}" placeholder="con" />
-				</div>
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.spd"}}</p>
-					<input name="system.statistics.spd.value" type="number" value="{{systemData.statistics.spd.value}}" placeholder="spd" />
-				</div>
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.int"}}</p>
-					<input name="system.statistics.int.value" type="number" value="{{systemData.statistics.int.value}}" placeholder="int" />
-				</div>
-				<div class="stat">
-					<p class="statname">{{localize "SRPG.cha"}}</p>
-					<input name="system.statistics.cha.value" type="number" value="{{systemData.statistics.cha.value}}" placeholder="cha" />
-				</div>
+                {{/each}}
 			</div>
 
 			{{!-- character picture --}}
@@ -124,8 +106,8 @@
 					</div>
 					<div class="other-label">{{localize "SRPG.available-levels"}}</div>
 					<div class="other-data" name="available-levels">{{systemData.availableLevels}}</div>
-					<div class="other-label">{{localize "SRPG.something"}}</div>
-					<div class="other-data" name="something" text="sampletext"></div>
+					<div class="other-label">{{localize "SRPG.damageBonus"}}</div>
+					<div class="other-data" name="system.damageBonus">{{systemData.damageBonus}}</div>
 				</div>
 			</div>
 		</div>
@@ -136,7 +118,7 @@
 	<nav class="sheet-tabs tabs" data-group="primary">
 		<a class="item" data-tab="skills">{{localize "SRPG.skills"}}</a>
 		<a class="item" data-tab="inventory">{{localize "SRPG.inventory"}}</a>
-		<a class="item" data-tab="techniques">{{localize "SRPG.techniques"}}</a>
+		<a class="item" data-tab="techniques">{{localize "SRPG.trainingtechniques"}}</a>
 		<a class="item" data-tab="bio">{{localize "SRPG.bio"}}</a>
 	</nav>
 
@@ -148,27 +130,27 @@
 			{{!-- skills with one stat --}}
 			<div class="skills-grid">
 				{{#each systemData.skills as |skill id|}}
-					<div class="skill">
-						<div class="grid-item stat">{{skill.stat}}</div>
-						<div class="grid-item label rollable" data-roll="d10+{{skill.base}}" data-label="{{localize skill.label}}">{{localize skill.label}}</div>
-						<div class="grid-item ranks">
-							<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
-						</div>
-						<div class="grid-item base">{{skill.base}}</div>
+				<div class="skill">
+					<div class="grid-item stat">{{skill.stat}}</div>
+					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}">{{localize skill.label}}</div>
+					<div class="grid-item ranks">
+						<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 					</div>
+					<div class="grid-item base">{{skill.base}}</div>
+				</div>
 				{{/each}}
 			</div>
 			{{!-- skills with two stats --}}
 			<div class="s2skills-grid">
 				{{#each systemData.s2skills as |s2skill id|}}
-					<div class="skill {{id}}">
-						<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
-						<div class="grid-item label rollable" data-roll="d10+{{s2skill.base}}" data-label="{{localize s2skill.label}}">{{localize s2skill.label}}</div>
-						<div class="grid-item ranks">
-							<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
-						</div>
-						<div class="grid-item base">{{s2skill.base}}</div>
+				<div class="skill {{id}}">
+					<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
+					<div class="grid-item label rollable" data-category="s2skills" data-id="{{id}}">{{localize s2skill.label}}</div>
+					<div class="grid-item ranks">
+						<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
 					</div>
+					<div class="grid-item base">{{s2skill.base}}</div>
+				</div>
 				{{/each}}
 			</div>
 		</div>
@@ -180,39 +162,56 @@
 
 		{{!-- TODO: techniques tab --}}
 		<div class="tab techniques" data-group="primary" data-tab="techniques">
-			<div class="temp">something</div>
+			<div class="training-grid">
+				{{#each systemData.trainings as |training id|}}
+				<div class="training {{id}}">
+					<div class="grid-item label">{{localize training.label}}</div>
+					<div class="grid-item ranks">
+						<input name="system.trainings.{{id}}.value" type="number" value="{{training.value}}" />
+					</div> 
+				</div>
+				{{/each}}
+			</div>
+			<hr>
+			<div class="techniques-list">
+				{{#each items.technique as |section id|}}
+				<div class="list-section">
+					<div class="section-heading">
+						<div class="item section-name">{{localize section.label}}</div>
+						<div class="item ckrcost-label">{{localize "SRPG.chakracost"}}</div>
+						<div class="item apcost-label">{{localize "SRPG.apcost"}}</div>
+						<div class="item range-label">{{localize "SRPG.range"}}</div>
+						<div class="item ranks-label">{{localize "SRPG.ranks"}}</div>
+						<div class="item max-ranks-label">{{localize "SRPG.max"}}</div>
+					</div>
+					{{#each section.list as |technique tid|}}
+					<div class="list-item">
+						<img class="litem technique-icon" src="{{technique.img}}" />
+						<div class="litem technique-name item-control" data-action="edit" data-id="{{tid}}">{{technique.name}}</div>
+						<div class="litem technique-chakra-cost">{{technique.system.chakraCost}}</div>
+						<div class="litem technique-ap-cost">{{technique.system.apCost}}</div>
+						<div class="litem technique-range-number">{{technique.system.range}}</div>
+						<div class="litem technique-range-unit">{{technique.system.rangeUnit}}</div>
+						<div class="litem technique-ranks">{{technique.system.rank}}</div>
+						<div class="litem technique-ranks-max">{{technique.system.maxRank}}</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/each}}
+			</div> 
 		</div>
 
 		{{!-- bio tab --}}
 		<div class="tab bio" data-group="primary" data-tab="bio">
 			<div class="bio-grid">
+				{{#each systemData.bio as |bioitem id|}}
 				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.physicalappearance"}}</div>
-					<textarea name="system.bio.appearance">{{systemData.bio.appearance}}</textarea>
+					<div class="label">{{localize bioitem.label}}</div>
+					<textarea name="system.bio.{{id}}.text">{{bioitem.text}}</textarea>
 				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.injuriesscars"}}</div>
-					<textarea name="system.bio.injuries">{{systemData.bio.injuries}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.beliefmotivation"}}</div>
-					<textarea name="system.bio.motivation">{{systemData.bio.motivation}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.personalitytraits"}}</div>
-					<textarea name="system.bio.personality">{{systemData.bio.personality}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.relationships"}}</div>
-					<textarea name="system.bio.relationships">{{systemData.bio.relationships}}</textarea>
-				</div>
-				<div class="bio-grid-item">
-					<div class="label">{{localize "SRPG.importantthings"}}</div>
-					<textarea name="system.bio.important">{{systemData.bio.important}}</textarea>
-				</div>
+				{{/each}}
 			</div>
 		</div>
 	</section>
-
 
 </form>
