@@ -7,7 +7,7 @@ import { SRPGActorSheet } from "./sheets/actor-sheet.mjs";
 import { SRPGItemSheet } from "./sheets/item-sheet.mjs";
 
 // other imports
-import { preloadHandlebarsTemplates } from "./templates.js";
+import { preloadHandlebarsTemplates } from "./templates.mjs";
 
 /* Foundry initialization */
 
