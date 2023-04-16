@@ -2,7 +2,7 @@
 
 	{{!-- Sheet Header --}}
 	<header class="sheet-header">
-        
+
 		<div class="header-grid">
 			{{!-- character info pane --}}
 			<div class="char-info header-grid-item">
@@ -22,32 +22,34 @@
 					<tr>
 						<td class="info-label">{{localize "SRPG.birthright"}}</td>
 						<td>
-							<input name="system.birthright" type="text" value="{{systemData.birthright}}" placeholder="birthright" />
+							<input name="system.birthright" type="text" value="{{systemData.birthright}}"
+								placeholder="birthright" />
 						</td>
 					</tr>
-        	        <tr>
-        	            <td class="info-label">{{localize "SRPG.affiliation"}}</td>
-        	            <td>
-        	                <input name="system.affiliation" type="text" value="{{systemData.affiliation}}" placeholder="affiliation" />
-        	            </td>
-        	        </tr>
+					<tr>
+						<td class="info-label">{{localize "SRPG.affiliation"}}</td>
+						<td>
+							<input name="system.affiliation" type="text" value="{{systemData.affiliation}}"
+								placeholder="affiliation" />
+						</td>
+					</tr>
 					<tr>
 						<td class="info-label">{{localize "SRPG.rank"}}</td>
 						<td>
 							<input name="system.rank" type="text" value="{{systemData.rank}}" placeholder="rank" />
-						</td> 
+						</td>
 					</tr>
 				</table>
 			</div>
 
 			{{!-- character stat block --}}
 			<div class="stat-grid header-grid-item">
-                {{#each systemData.statistics as |stat id|}}
-                <div class="stat">
+				{{#each systemData.statistics as |stat id|}}
+				<div class="stat">
 					<p class="statname">{{id}}</p>
 					<input name="system.statistics.{{id}}.value" type="number" value="{{stat.value}}" />
 				</div>
-                {{/each}}
+				{{/each}}
 			</div>
 
 			{{!-- character picture --}}
@@ -72,11 +74,13 @@
 				<div class="resource-grid-item minigrid">
 					<div class="minigrid-item resource-label resource-actual chk">{{localize "SRPG.chk"}}</div>
 					<div class="minigrid-item resource-value resource-actual">
-						<input name="system.chakra.value" type="number" value="{{systemData.chakra.value}}" placeholder="chk" />
+						<input name="system.chakra.value" type="number" value="{{systemData.chakra.value}}"
+							placeholder="chk" />
 					</div>
 					<div class="minigrid-item resource-label resource-max chk">{{localize "SRPG.max"}}</div>
 					<div class="minigrid-item resource-value resource-max">
-						<input name="system.chakra.max" type="number" value="{{systemData.chakra.max}}" placeholder="chk max" />
+						<input name="system.chakra.max" type="number" value="{{systemData.chakra.max}}"
+							placeholder="chk max" />
 					</div>
 				</div>
 				<div class="resource-grid-item ap minigrid">
@@ -132,7 +136,8 @@
 				{{#each systemData.skills as |skill id|}}
 				<div class="skill">
 					<div class="grid-item stat">{{skill.stat}}</div>
-					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}">{{localize skill.label}}</div>
+					<div class="grid-item label rollable" data-category="skills" data-id="{{id}}">{{localize
+						skill.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.skills.{{id}}.value" type="number" value="{{skill.value}}" />
 					</div>
@@ -145,7 +150,8 @@
 				{{#each systemData.s2skills as |s2skill id|}}
 				<div class="skill {{id}}">
 					<div class="grid-item stats">{{s2skill.stat1}}/{{s2skill.stat2}}</div>
-					<div class="grid-item label rollable" data-category="s2skills" data-id="{{id}}">{{localize s2skill.label}}</div>
+					<div class="grid-item label rollable" data-category="s2skills" data-id="{{id}}">{{localize
+						s2skill.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.s2skills.{{id}}.value" type="number" value="{{s2skill.value}}" />
 					</div>
@@ -157,7 +163,101 @@
 
 		{{!-- TODO: inventory tab --}}
 		<div class="tab inventory" data-group="primary" data-tab="inventory">
-			<div class="temp">something</div>
+			<div class="items-list">
+				<div class="list-section">
+					<div class="outfits section-heading">
+						<div class="item section-name">{{localize items.physical.outfits.label}}</div>
+						<div class="item armor-label">{{localize "SRPG.armor"}}</div>
+						<div class="item quantity-label">{{localize "SRPG.quantity"}}</div>
+						<div class="item size-label">{{localize "SRPG.size"}}</div>
+						<div class="item price-label">{{localize "SRPG.price"}}</div>
+						<div class="item delete-label">{{localize "SRPG.del"}}</div>
+					</div>
+					{{#each items.physical.outfits.list as |item id|}}
+					<div class="list-item list-outfits">
+						<img class="litem item-icon" src="{{item.img}}" />
+						<div class="litem item-name item-control" data-action="edit" data-id="{{item._id}}">{{item.name}}
+						</div>
+						<div class="litem item-armor">{{item.system.armor}}</div>
+						<div class="litem item-quantity">{{item.system.quantity}}</div>
+						<div class="litem item-size">{{item.system.size}}</div>
+						<div class="litem item-price">{{item.system.price}}</div>
+						<div class="litem item-delete item-control" data-action="delete" data-id="{{item._id}}">D</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="list-section">
+					<div class="weapons section-heading">
+						<div class="item section-name">{{localize items.physical.weapons.label}}</div>
+						<div class="item technique-label">{{localize "SRPG.tech"}}</div>
+						<div class="item skill-label">{{localize "SRPG.skill"}}</div>
+						<div class="item damage-label">{{localize "SRPG.damage"}}</div>
+						<div class="item range-label">{{localize "SRPG.range"}}</div>
+						<div class="item stat-label">{{localize "SRPG.stat"}}</div>
+						<div class="item quantity-label">{{localize "SRPG.quantity"}}</div>
+						<div class="item size-label">{{localize "SRPG.size"}}</div>
+						<div class="item price-label">{{localize "SRPG.price"}}</div>
+						<div class="item delete-label">{{localize "SRPG.del"}}</div>
+					</div>
+					{{#each items.physical.weapons.list as |item id|}}
+					<div class="list-item list-weapons">
+						<img class="litem item-icon" src="{{item.img}}" />
+						<div class="litem item-name item-control" data-action="edit" data-id="{{item._id}}">{{item.name}}
+						</div>
+						<div class="litem item-technique">{{item.system.technique}}</div>
+						<div class="litem item-skill">{{item.system.skill}}</div>
+						<div class="litem item-damage">{{item.system.damage}}</div>
+						<div class="litem item-range-number">{{item.system.range}}</div>
+						<div class="litem item-range-unit">{{item.system.rangeUnit}}</div>
+						<div class="litem item-stat">{{item.system.stat}}</div>
+						<div class="litem item-quantity">{{item.system.quantity}}</div>
+						<div class="litem item-size">{{item.system.size}}</div>
+						<div class="litem item-price">{{item.system.price}}</div>
+						<div class="litem item-delete item-control" data-action="delete" data-id="{{item._id}}">D</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="list-section">
+					<div class="equipment section-heading">
+						<div class="item section-name">{{localize items.physical.equipment.label}}</div>
+						<div class="item quantity-label">{{localize "SRPG.quantity"}}</div>
+						<div class="item size-label">{{localize "SRPG.size"}}</div>
+						<div class="item price-label">{{localize "SRPG.price"}}</div>
+						<div class="item delete-label">{{localize "SRPG.del"}}</div>
+					</div>
+					{{#each items.physical.equipment.list as |item id|}}
+					<div class="list-item list-equipment">
+						<img class="litem item-icon" src="{{item.img}}"/>
+						<div class="litem item-name item-control" data-action="edit" data-id="{{item._id}}">{{item.name}}
+						</div>
+						<div class="litem item-quantity">{{item.system.quantity}}</div>
+						<div class="litem item-size">{{item.system.size}}</div>
+						<div class="litem item-price">{{item.system.price}}</div>
+						<div class="litem item-delete item-control" data-action="delete" data-id="{{item._id}}">D</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="list-section">
+					<div class="misc section-heading">
+						<div class="item section-name">{{localize items.physical.misc.label}}</div>
+						<div class="item quantity-label">{{localize "SRPG.quantity"}}</div>
+						<div class="item size-label">{{localize "SRPG.size"}}</div>
+						<div class="item price-label">{{localize "SRPG.price"}}</div>
+						<div class="item delete-label">{{localize "SRPG.del"}}</div>
+					</div>
+					{{#each items.physical.misc.list as |item id|}}
+					<div class="list-item list-misc">
+						<img class="litem item-icon" src="{{item.img}}"/>
+						<div class="litem item-name item-control" data-action="edit" data-id="{{item._id}}">{{item.name}}
+						</div>
+						<div class="litem item-quantity">{{item.system.quantity}}</div>
+						<div class="litem item-size">{{item.system.size}}</div>
+						<div class="litem item-price">{{item.system.price}}</div>
+						<div class="litem item-delete item-control" data-action="delete" data-id="{{item._id}}">D</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
 		</div>
 
 		{{!-- TODO: techniques tab --}}
@@ -168,7 +268,7 @@
 					<div class="grid-item label">{{localize training.label}}</div>
 					<div class="grid-item ranks">
 						<input name="system.trainings.{{id}}.value" type="number" value="{{training.value}}" />
-					</div> 
+					</div>
 				</div>
 				{{/each}}
 			</div>
@@ -183,22 +283,25 @@
 						<div class="item range-label">{{localize "SRPG.range"}}</div>
 						<div class="item ranks-label">{{localize "SRPG.ranks"}}</div>
 						<div class="item max-ranks-label">{{localize "SRPG.max"}}</div>
+						<div class="item delete-label">{{localize "SRPG.del"}}</div>
 					</div>
 					{{#each section.list as |technique tid|}}
 					<div class="list-item">
 						<img class="litem technique-icon" src="{{technique.img}}" />
-						<div class="litem technique-name item-control" data-action="edit" data-id="{{tid}}">{{technique.name}}</div>
+						<div class="litem technique-name item-control" data-action="edit" data-id="{{technique._id}}">
+							{{technique.name}}</div>
 						<div class="litem technique-chakra-cost">{{technique.system.chakraCost}}</div>
 						<div class="litem technique-ap-cost">{{technique.system.apCost}}</div>
 						<div class="litem technique-range-number">{{technique.system.range}}</div>
 						<div class="litem technique-range-unit">{{technique.system.rangeUnit}}</div>
 						<div class="litem technique-ranks">{{technique.system.rank}}</div>
 						<div class="litem technique-ranks-max">{{technique.system.maxRank}}</div>
+						<div class="litem technique-delete item-control" data-action="delete" data-id="{{technique._id}}">D</div>
 					</div>
 					{{/each}}
 				</div>
 				{{/each}}
-			</div> 
+			</div>
 		</div>
 
 		{{!-- bio tab --}}

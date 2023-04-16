@@ -298,23 +298,24 @@
 	"Item": {
 		"types": ["outfit", "equipment", "weapon", "misc", "technique"],
 		"templates": {
-			"baseItem": {
-				"description": "",
-				"quantity": 1,
-				"size": "",
-				"ope": 0,
-				"price": 0
-			}
+            "baseItem": {
+                "description": ""
+            },
+            "physicalItem": {
+                "quantity": 1,
+                "size": "",
+                "price": 0
+            }
 		},
 		"outfit": {
-			"templates": ["baseItem"],
+			"templates": ["baseItem", "physicalItem"],
 			"armor": 0
 		}, 
 		"equipment": {
-			"templates": ["baseItem"]
+			"templates": ["baseItem", "physicalItem"]
 		},
 		"weapon": {
-			"templates": ["baseItem"],
+			"templates": ["baseItem", "physicalItem"],
 			"technique": "",
 			"skill": "",
 			"damage": "",
@@ -323,10 +324,10 @@
 			"stat": "any"
 		},
 		"misc": {
-			"templates": ["baseItem"]
+			"templates": ["baseItem", "physicalItem"]
 		},
 		"technique": {
-			"description": "",
+            "templates": ["physicalItem"],
 			"type": 0,
 			"chakraCost": 0,
 			"per": "",

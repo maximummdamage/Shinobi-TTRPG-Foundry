@@ -236,10 +236,7 @@ export class SRPGActorSheet extends ActorSheet {
 
         // Obtain event data
         const button = event.currentTarget;
-		const item = this.actor.items/*.get(button.dataset.id)*/;
-		console.log(item);
-        //const li = button.closest(".item");
-        //const item = this.actor.items.get(li?.dataset.itemId);
+		const item = this.actor.items.get(button.dataset.id);
 
         // Handle different actions
         switch (button.dataset.action) {

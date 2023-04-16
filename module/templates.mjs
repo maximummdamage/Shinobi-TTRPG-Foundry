@@ -7,6 +7,11 @@ export const preloadHandlebarsTemplates = async function () {
 
     // Define template paths to load
     const templatePaths = [
+        // shared partials
+
+        // actor sheet partials
+
+        // item sheet partials
     ];
 
     // Load the template parts
