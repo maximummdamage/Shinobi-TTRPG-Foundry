@@ -6,6 +6,12 @@
 	text-shadow: 0 0 10px red;
 }
 
+/* item controls */
+.item-control:hover {
+	cursor: pointer;
+	text-shadow: 0 0 10px red;
+}
+
 /* header general */
 header .sheet-header {
     margin: 0px;
@@ -318,7 +324,7 @@ header .sheet-header {
 
 .techniques .techniques-list .list-section .section-heading {
 	display: grid;
-	grid-template-columns: 40% 10% 10% 20% 10% 10%
+	grid-template-columns: 35% 10% 10% 20% 10% 10% 5%;
 }
 
 .techniques .techniques-list .list-section .section-heading .item {
@@ -338,7 +344,7 @@ header .sheet-header {
 
 .techniques .techniques-list .list-section .list-item {
 	display: grid;
-	grid-template-columns: 5% 35% 10% 10% 10% 10% 10% 10%;
+	grid-template-columns: 5% 30% 10% 10% 10% 10% 10% 10% 5%;
 }
 
 .techniques .techniques-list .list-section .list-item .litem {
@@ -351,6 +357,80 @@ header .sheet-header {
 	justify-content: center;
 	align-items: center;
 	
+}
+
+/* inventory */
+.inventory .items-list {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+}
+
+.inventory .items-list .list-section .outfits {
+	display: grid;
+	grid-template-columns: 50% 10% 10% 15% 10% 5%;
+}
+
+.inventory .items-list .list-section .equipment {
+	display: grid;
+	grid-template-columns: 50% 15% 20% 10% 5%;
+}
+
+.inventory .items-list .list-section .misc {
+	display: grid;
+	grid-template-columns: 50% 15% 20% 10% 5%;
+}
+
+.inventory .items-list .list-section .weapons {
+	display: grid;
+	grid-template-columns: 20% 10% 10% 10% 10% 10% 10% 5% 10% 5%;
+}
+
+.inventory .items-list .list-section .section-heading .item {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-transform: capitalize;
+
+	height: 35px;
+}
+
+.inventory .items-list .list-section .list-outfits {
+	display: grid;
+	grid-template-columns: 5% 45% 10% 10% 15% 10% 5%;
+}
+
+.inventory .items-list .list-section .list-equipment {
+	display: grid;
+	grid-template-columns: 5% 45% 15% 20% 10% 5%;
+}
+
+.inventory .items-list .list-section .list-misc {
+	display: grid;
+	grid-template-columns: 5% 45% 15% 20% 10% 5%;
+}
+
+.inventory .items-list .list-section .list-weapons {
+	display: grid;
+	grid-template-columns: 5% 15% 10% 10% 10% 5% 5% 10% 10% 5% 10% 5%;
+}
+
+.inventory .items-list .list-section .list-item .litem {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	border-color: grey;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* bio formatting */
@@ -412,5 +492,7 @@ header .sheet-header {
 
 .skillroll-config .roll-bonus input {
 	width: 100%;
-
 }
+
+/* Item Sheet Style */
+/* header */
